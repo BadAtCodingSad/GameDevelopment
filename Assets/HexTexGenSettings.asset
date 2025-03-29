@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15247a7e8b1031478cd489a9daddda1, type: 3}
+  m_Name: HexTexGenSettings
+  m_EditorClassIdentifier: 
+  Ocean: {fileID: 4562932375561487484, guid: e503e64695f63bb448578d912364e054, type: 3}
+  Pond: {fileID: 4562932375561487484, guid: e503e64695f63bb448578d912364e054, type: 3}
+  Forest: {fileID: 3381528373909595139, guid: 55cce7f7ee801134888bd9ed776acbff, type: 3}
+  Cave: {fileID: 4562932375561487484, guid: e503e64695f63bb448578d912364e054, type: 3}
+  Mountain: {fileID: 4562932375561487484, guid: e503e64695f63bb448578d912364e054, type: 3}
+  Town: {fileID: 4562932375561487484, guid: e503e64695f63bb448578d912364e054, type: 3}
