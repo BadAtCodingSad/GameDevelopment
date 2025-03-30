@@ -36,6 +36,8 @@ public class HexTile : MonoBehaviour
     void Start()
     {
         while (!GameManager.instance.ready) { }
+        if (type == TerrainType.Town)
+            GameManager.instance.townTile = this;
 
         neighbours = GameManager.instance.getNeighbours(transform);
     }
