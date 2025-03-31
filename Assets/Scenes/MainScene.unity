@@ -14,8 +14,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.1745283, g: 0.68770224, b: 1, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -119,6 +119,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &249802337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249802339}
+  - component: {fileID: 249802340}
+  m_Layer: 0
+  m_Name: Fog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249802339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249802337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &249802340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249802337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34aaf914b18b3bf40ad86346f6f18b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseChunk: {fileID: 7322454234937530995, guid: 6c26588f9fd6dc54c82bc3a8612a397f, type: 3}
+  mountains: {fileID: 7322454234937530995, guid: 6c26588f9fd6dc54c82bc3a8612a397f, type: 3}
+  oceans: {fileID: 7322454234937530995, guid: 6c26588f9fd6dc54c82bc3a8612a397f, type: 3}
+  chunkList:
+  - {fileID: 7322454234937530995, guid: 6c26588f9fd6dc54c82bc3a8612a397f, type: 3}
+  xSize: 6
+  ySize: 6
+  yLocation: 0
+  xScale: 5.1755
+  yScale: 6
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,13 +260,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.26307964, y: -0.22386427, z: 0.06284967, w: -0.9363353}
-  m_LocalPosition: {x: 3.43689, y: 15.080612, z: -7.8969564}
+  m_LocalRotation: {x: 0.40557975, y: -0.579228, z: 0.40557975, w: 0.579228}
+  m_LocalPosition: {x: 7.977479, y: 1.9186172, z: 8.530206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70, y: -90, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,18 +323,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed3bcc378a1a2441a28e353392c7551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMoveSpeed: 20
-  shiftMultiplier: 2
-  acceleration: 10
-  deceleration: 15
-  edgeScrollThreshold: 10
-  rotationSpeed: 60
-  allowRotation: 1
-  zoomSpeed: 100
-  minZoom: 10
-  maxZoom: 80
-  panLimitX: {x: -50, y: 50}
-  panLimitZ: {x: -50, y: 50}
+  dragSpeed: 0.5
+  zoomSpeed: 5
+  minZoom: 4
+  maxZoom: 10
+  panLimitX: {x: 5, y: 35}
+  panLimitZ: {x: 5, y: 35}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +462,7 @@ GameObject:
   - component: {fileID: 451810205}
   - component: {fileID: 451810207}
   m_Layer: 0
-  m_Name: HexGrid
+  m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,11 +482,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 6
   height: 6
-  oceanPrefab: {fileID: 5278921180121638308, guid: f677335100ffe844da221be4f25bd3dd, type: 3}
-  forestPrefab: {fileID: 3381528373909595139, guid: 55cce7f7ee801134888bd9ed776acbff, type: 3}
-  quarryPrefab: {fileID: 5278921180121638308, guid: f677335100ffe844da221be4f25bd3dd, type: 3}
-  riverPrefab: {fileID: 3381528373909595139, guid: 55cce7f7ee801134888bd9ed776acbff, type: 3}
-  mountainPrefab: {fileID: 2397046218281364489, guid: ba6a5051e420fe64e91086702572031f, type: 3}
+  oceanPrefab: {fileID: 3381528373909595139, guid: 55cce7f7ee801134888bd9ed776acbff, type: 3}
+  forestPrefab: {fileID: 5278921180121638308, guid: f677335100ffe844da221be4f25bd3dd, type: 3}
+  quarryPrefab: {fileID: 2397046218281364489, guid: ba6a5051e420fe64e91086702572031f, type: 3}
+  riverPrefab: {fileID: 7103697266255479796, guid: 1b21b5fddea1731408ea8fedd9965578, type: 3}
+  mountainPrefab: {fileID: 7103697266255479796, guid: 1b21b5fddea1731408ea8fedd9965578, type: 3}
   hexWidth: 1.15
   hexHeight: 0.9999703
 --- !u!4 &451810206
@@ -450,7 +498,7 @@ Transform:
   m_GameObject: {fileID: 451810204}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.16, y: 4.6645937, z: 7.33}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -468,26 +516,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34aaf914b18b3bf40ad86346f6f18b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseChunk: {fileID: 451366236106498441, guid: 62cff690f263cf145a759c30b31579b5, type: 3}
+  baseChunk: {fileID: 4124704647321278916, guid: e9727c4ab3a06d749a04829258215bb1, type: 3}
+  mountains: {fileID: 1747344828524046042, guid: af8617ab1dbbaf740a6aad38fb2c628d, type: 3}
+  oceans: {fileID: 3498274468094969496, guid: 2ccfb0f0548c9864dad524cf78faa55d, type: 3}
   chunkList:
-  - {fileID: 588339436808561125, guid: 740ab67ff368ce742bbcfc302ec5988e, type: 3}
-  - {fileID: 6562150989149474865, guid: e4f6b8694d0ec0c47a11d97c3d4f2461, type: 3}
-  - {fileID: 5169865093741375979, guid: 831c21b9e0bf59a4cb01b1e67b568f9f, type: 3}
-  - {fileID: 622371518184582318, guid: 45a97b155df8c124c986bf1e7d233138, type: 3}
-  - {fileID: 5899274036863885820, guid: 99e07bc18ea9d2642bc864deb7279eec, type: 3}
-  - {fileID: 1394449158931602187, guid: 4a6f7a0dbfbab734e8f1e33c5a4c83b2, type: 3}
-  - {fileID: 4832280518052665894, guid: d8c7da75f59b4d5478f20c13f0e0f989, type: 3}
-  - {fileID: 3082057405408467258, guid: 5450b721b9689da428ed50ee812880f2, type: 3}
-  - {fileID: 2405835453596949965, guid: 0e9d3bfb780f76d4b97d44256dee450f, type: 3}
-  - {fileID: 7236191980674154922, guid: 107a2fb43a4f5f94ab9c979e78f72c97, type: 3}
-  - {fileID: 6323011637519884443, guid: 0e8a45a790dd9b34b9b9792fca535e07, type: 3}
-  - {fileID: 8437719834990814998, guid: 4d4d8bae593f07f4b900a648621c4761, type: 3}
-  - {fileID: 2956583321041883269, guid: c4b89d39106803d4fb6532f4df99bd48, type: 3}
-  - {fileID: 3610260962413391386, guid: b311273e28bc41c419820abca6f112f7, type: 3}
-  - {fileID: 8883328522458299881, guid: 6d2b805e35081ac44be328c5d1c1ef0a, type: 3}
-  - {fileID: 6363340625471598467, guid: 37805588c01e33f438cc2d67abeebfe0, type: 3}
-  xSize: 5
-  ySize: 5
+  - {fileID: 3392816909212129304, guid: 0d8877c51375d6f488cde97f363e7a4c, type: 3}
+  - {fileID: 2901924821634636457, guid: 0a1ef78e3f35b5848a13f6f4b84a50e1, type: 3}
+  - {fileID: 8177234814999354700, guid: 7767056f9b671aa4b9427c940f524419, type: 3}
+  - {fileID: 2999147329689644460, guid: ca1a92ccafd9fc246a2b4661c5d028da, type: 3}
+  - {fileID: 4982599674457332839, guid: 1bc78ece2d9b0aa41b7cf000807811d9, type: 3}
+  - {fileID: 9088407727161813896, guid: 01a80ef568da01b4396d01c2eea7da58, type: 3}
+  - {fileID: 3474861168449375489, guid: f78f0cf838aeec44bb76c2fb0230ed6a, type: 3}
+  - {fileID: 2331918364972663820, guid: 9e34bc451b64fe24fa7d3453525bb61f, type: 3}
+  - {fileID: 6551188497108987828, guid: d3b3409348cd3ef4097de61b892f90a4, type: 3}
+  - {fileID: 6770320701728108208, guid: 5f78474c235bfb548a501a969eca05a5, type: 3}
+  - {fileID: 3190807778010798416, guid: c67c0ccfe0db422489e5a3e00e44425c, type: 3}
+  - {fileID: 8250217355442101097, guid: a55c3e9b146b8994393291dfd023bde3, type: 3}
+  - {fileID: 6392110827356595720, guid: d84f15b9f510cbb49bf7986acdf83820, type: 3}
+  - {fileID: 385924878332166737, guid: 3ecd1ceb414f5d44887fae0ad5f44fac, type: 3}
+  - {fileID: 4370822370829748082, guid: 00a264dd4b3f21d4e80b9101061f4ce9, type: 3}
+  - {fileID: 3336078820520152582, guid: d31004348675fd4438aeef0f3162c533, type: 3}
+  xSize: 6
+  ySize: 6
+  yLocation: 0
   xScale: 5.1755
   yScale: 6
 --- !u!1 &832575517
@@ -599,8 +650,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9463bd8016dca64d8797879bedaff11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 330585546}
   hexTiles: []
   ready: 0
+  townTile: {fileID: 0}
+  fogDetect: {fileID: 4787307281995590586, guid: bd1e3608538e3eb46bc5643776753b1c, type: 3}
 --- !u!4 &1794925301
 Transform:
   m_ObjectHideFlags: 0
@@ -664,10 +718,11 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1794925301}
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 451810206}
+  - {fileID: 249802339}
   - {fileID: 1453300487}
   - {fileID: 2103837965}
-  - {fileID: 1794925301}

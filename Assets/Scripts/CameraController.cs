@@ -4,18 +4,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float baseMoveSpeed = 20f;
-    public float shiftMultiplier = 2f;
-    public float acceleration = 10f;
-    public float deceleration = 15f;
-    public float edgeScrollThreshold = 10f;
-
-    [Header("Rotation Settings")]
-    public float rotationSpeed = 60f;
-    public bool allowRotation = true;
-
-    [Header("Zoom Settings")]
-    public float zoomSpeed = 100f;
+    public float dragSpeed = 2f;
+    public float zoomSpeed = 10f;
     public float minZoom = 10f;
     public float maxZoom = 80f;
 
@@ -23,11 +13,8 @@ public class CameraController : MonoBehaviour
     public Vector2 panLimitX = new Vector2(-50f, 50f);
     public Vector2 panLimitZ = new Vector2(-50f, 50f);
 
-    public event Action<Vector3> OnCameraMoved; // For minimap sync
-
-    private Vector3 targetVelocity;
-    private Vector3 currentVelocity;
     private Vector3 dragOrigin;
+    private bool isDragging = false;
     private Camera cam;
 
     void Start()
@@ -37,72 +24,49 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        HandleMovement();
-        HandleMouseDrag();
+        HandleDrag();
         HandleZoom();
-        HandleRotation();
+        HandleClicks();
     }
 
-    void HandleMovement()
+    void HandleClicks()
     {
-        Vector3 inputDir = Vector3.zero;
-
-        // Keyboard Input
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            inputDir += Vector3.forward;
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            inputDir += Vector3.back;
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            inputDir += Vector3.left;
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            inputDir += Vector3.right;
-
-        // Edge Scroll
-        if (Input.mousePosition.x >= Screen.width - edgeScrollThreshold)
-            inputDir += Vector3.right;
-        if (Input.mousePosition.x <= edgeScrollThreshold)
-            inputDir += Vector3.left;
-        if (Input.mousePosition.y >= Screen.height - edgeScrollThreshold)
-            inputDir += Vector3.forward;
-        if (Input.mousePosition.y <= edgeScrollThreshold)
-            inputDir += Vector3.back;
-
-        inputDir.Normalize();
-
-        // Speed boost
-        float speed = baseMoveSpeed;
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-            speed *= shiftMultiplier;
-
-        targetVelocity = inputDir * speed;
-
-        // Smooth Movement
-        currentVelocity = Vector3.MoveTowards(currentVelocity, targetVelocity,
-            (targetVelocity.magnitude > currentVelocity.magnitude ? acceleration : deceleration) * Time.deltaTime);
-
-        transform.position += currentVelocity * Time.deltaTime;
-        ClampPosition();
-
-        if (currentVelocity != Vector3.zero)
-            OnCameraMoved?.Invoke(transform.position);
-    }
-
-    void HandleMouseDrag()
-    {
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButtonDown(0)) // Left mouse click
         {
-            dragOrigin = Input.mousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log("Hit Object: " + hit.collider.gameObject.transform.parent.gameObject.name);
+            }
+        }
+    }
+
+    void HandleDrag()
+    {
+        if (Input.GetMouseButtonDown(1)) // Middle Mouse Button Pressed
+        {
+            dragOrigin = GetHitPoint();
+            isDragging = true;
         }
 
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButtonUp(1)) // Middle Mouse Button Released
         {
-            Vector3 diff = cam.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
-            Vector3 move = new Vector3(-diff.x * baseMoveSpeed, 0, -diff.y * baseMoveSpeed);
+            isDragging = false;
+        }
 
-            transform.Translate(move * Time.deltaTime, Space.World);
-            dragOrigin = Input.mousePosition;
-            ClampPosition();
-            OnCameraMoved?.Invoke(transform.position);
+        if (isDragging)
+        {
+            Vector3 currentPoint = GetHitPoint();
+            Vector3 move = dragOrigin - currentPoint;
+
+            // Move only when there's a valid difference
+            if (move.sqrMagnitude > 0.01f)
+            {
+                transform.position += new Vector3(move.x, 0, move.z) * dragSpeed;
+                ClampPosition();
+            }
         }
     }
 
@@ -112,26 +76,18 @@ public class CameraController : MonoBehaviour
         if (scroll != 0f)
         {
             Vector3 pos = cam.transform.localPosition;
-            pos.y -= scroll * zoomSpeed * Time.deltaTime;
+            pos.y -= scroll * zoomSpeed;
             pos.y = Mathf.Clamp(pos.y, minZoom, maxZoom);
             cam.transform.localPosition = pos;
         }
     }
 
-    void HandleRotation()
+    Vector3 GetHitPoint()
     {
-        if (!allowRotation) return;
-
-        float rotate = 0f;
-        if (Input.GetKey(KeyCode.Q))
-            rotate = -1f;
-        if (Input.GetKey(KeyCode.E))
-            rotate = 1f;
-
-        if (rotate != 0f)
-        {
-            transform.Rotate(Vector3.up, rotate * rotationSpeed * Time.deltaTime, Space.World);
-        }
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+            return hit.point;
+        return transform.position; // Default if no hit
     }
 
     void ClampPosition()
