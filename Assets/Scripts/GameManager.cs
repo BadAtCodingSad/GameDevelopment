@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private GameObject fogClearer; // Scale this
     private bool townTileSet = false;
 
+    Vector3 camBasePos;
+
     #region Singleton
     private void Awake()
     {
@@ -35,12 +37,20 @@ public class GameManager : MonoBehaviour
     {
         if (townTile != null && !townTileSet) 
         {
-            Vector3 spawnPos = new Vector3(townTile.gameObject.transform.position.x, .5f, townTile.gameObject.transform.position.z);
-            Vector3 camPos = new Vector3(townTile.gameObject.transform.position.x + 1, 4, townTile.gameObject.transform.position.z);
+            Vector3 spawnPos = new Vector3(townTile.gameObject.transform.position.x, 0.5f, townTile.gameObject.transform.position.z);
+            camBasePos = new Vector3(townTile.gameObject.transform.position.x + 1, 4, townTile.gameObject.transform.position.z);
             fogClearer = Instantiate(fogDetect, spawnPos, Quaternion.identity);
             townTileSet = true;
-            cam.position = camPos;
+            MoveCamToLocation(camBasePos);
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            MoveCamToLocation(camBasePos);
+        }
+    }
+    public void MoveCamToLocation(Vector3 location) 
+    {
+        cam.position = location;
     }
     public List<Transform> getNeighbours(Transform self) 
     {

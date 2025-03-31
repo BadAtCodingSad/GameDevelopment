@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3a8e12cbac256f743aff260b9071c628
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 178415
+  packageName: MK Toon - Stylized Shader
+  packageVersion: 3.1.4E
+  assetPath: Assets/MK/MKToon/Shader/Lib/ShadowCaster/ProgramShadowCaster.hlsl
+  uploadId: 739330
