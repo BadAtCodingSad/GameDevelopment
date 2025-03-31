@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 34aaf914b18b3bf40ad86346f6f18b97
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - baseChunk: {fileID: 4124704647321278916, guid: e9727c4ab3a06d749a04829258215bb1, type: 3}
+  - mountains: {fileID: 2397046218281364489, guid: ba6a5051e420fe64e91086702572031f, type: 3}
+  - oceans: {fileID: 7103697266255479796, guid: 89721ce1cba2faf4e93e15d3e3143d52, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
