@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &477854336920113890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &716448655884854474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,7 +2588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &1546073629263097823
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,7 +4294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &2722440706691930180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,7 +4423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &2777283901397280960
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,7 +4982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &3112950403398866290
 GameObject:
   m_ObjectHideFlags: 0
@@ -5605,7 +5605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &3238337599097619114
 GameObject:
   m_ObjectHideFlags: 0
@@ -6400,7 +6400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &3580923193378380884
 GameObject:
   m_ObjectHideFlags: 0
@@ -6787,7 +6787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &3751306379642394297
 GameObject:
   m_ObjectHideFlags: 0
@@ -7260,7 +7260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &3983438197808903560
 GameObject:
   m_ObjectHideFlags: 0
@@ -7561,7 +7561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &4035511445937762459
 GameObject:
   m_ObjectHideFlags: 0
@@ -8034,7 +8034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &4138186886885408655
 GameObject:
   m_ObjectHideFlags: 0
@@ -8421,7 +8421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &4273141262064740447
 GameObject:
   m_ObjectHideFlags: 0
@@ -9614,7 +9614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &4703468247139020436
 GameObject:
   m_ObjectHideFlags: 0
@@ -9775,7 +9775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &4742898223608098200
 GameObject:
   m_ObjectHideFlags: 0
@@ -10076,7 +10076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &4882327689203661431
 GameObject:
   m_ObjectHideFlags: 0
@@ -11161,7 +11161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &5368709984589325588
 GameObject:
   m_ObjectHideFlags: 0
@@ -11548,7 +11548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &5477465428713429974
 GameObject:
   m_ObjectHideFlags: 0
@@ -11677,7 +11677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &5573463670899308414
 GameObject:
   m_ObjectHideFlags: 0
@@ -12096,7 +12096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &5662305088379296092
 GameObject:
   m_ObjectHideFlags: 0
@@ -12483,7 +12483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &5876391156157631710
 GameObject:
   m_ObjectHideFlags: 0
@@ -12676,7 +12676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &5924498877347655104
 GameObject:
   m_ObjectHideFlags: 0
@@ -14009,7 +14009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &6405324710517969831
 GameObject:
   m_ObjectHideFlags: 0
@@ -15148,7 +15148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &6786564827824624427
 GameObject:
   m_ObjectHideFlags: 0
@@ -15363,7 +15363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &6887397242118189849
 GameObject:
   m_ObjectHideFlags: 0
@@ -15922,7 +15922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &7079698007708268183
 GameObject:
   m_ObjectHideFlags: 0
@@ -16255,7 +16255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &7116379759249261799
 GameObject:
   m_ObjectHideFlags: 0
@@ -16470,7 +16470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &7154409395634887119
 GameObject:
   m_ObjectHideFlags: 0
@@ -16599,7 +16599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &7161304804092834475
 GameObject:
   m_ObjectHideFlags: 0
@@ -17222,7 +17222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &7474029694020756421
 GameObject:
   m_ObjectHideFlags: 0
@@ -17867,7 +17867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &7633666281827014440
 GameObject:
   m_ObjectHideFlags: 0
@@ -18082,7 +18082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &7638730705419357856
 GameObject:
   m_ObjectHideFlags: 0
@@ -18985,7 +18985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &8217193473959382658
 GameObject:
   m_ObjectHideFlags: 0
@@ -19318,7 +19318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &8397605810779541200
 GameObject:
   m_ObjectHideFlags: 0
@@ -20521,7 +20521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &8855501197981573798
 GameObject:
   m_ObjectHideFlags: 0
@@ -21316,7 +21316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minScale: 0.034
-  maxScale: 0.064
+  maxScale: 0.05
 --- !u!1 &9220298303093824915
 GameObject:
   m_ObjectHideFlags: 0

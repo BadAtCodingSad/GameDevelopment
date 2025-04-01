@@ -1,73 +1,90 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    public float dragSpeed = 2f;
     public float zoomSpeed = 10f;
     public float minZoom = 10f;
     public float maxZoom = 80f;
+    public float movementSpeed = 0.5f;
 
     [Header("Limit Settings")]
     public Vector2 panLimitX = new Vector2(-50f, 50f);
     public Vector2 panLimitZ = new Vector2(-50f, 50f);
 
-    private Vector3 dragOrigin;
-    private bool isDragging = false;
+    public Vector3 newPosition;
+
+
+    public Vector3 dragStartPostion;
+    public Vector3 dragCurrentPostion;
     private Camera cam;
+    Vector3 tempPosition;
 
     void Start()
     {
+        newPosition = transform.position;
         cam = Camera.main;
     }
 
     void Update()
     {
-        HandleDrag();
-        HandleZoom();
         HandleClicks();
+        HandleMouseInput();
+        HandleZoom();
+        HandleMovement();
+
     }
 
-    void HandleClicks()
+    private void HandleClicks()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse click
+        if (Input.GetMouseButtonDown(0)) // Casts a ray from the camera to the mouse position
         {
+            if (EventSystem.current.IsPointerOverGameObject()) return;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("Hit Object: " + hit.collider.gameObject.transform.parent.gameObject.name);
+                HexTile tempHex = hit.collider.gameObject.GetComponentInParent<HexTile>();
+                if (tempHex != null)
+                {
+                    GameManager.instance.SelectedHexTile(tempHex);
+                }
             }
         }
     }
 
-    void HandleDrag()
+    private void HandleMouseInput() 
     {
-        if (Input.GetMouseButtonDown(1)) // Middle Mouse Button Pressed
+        if (Input.GetMouseButtonDown(1)) 
         {
-            dragOrigin = GetHitPoint();
-            isDragging = true;
-        }
-
-        if (Input.GetMouseButtonUp(1)) // Middle Mouse Button Released
-        {
-            isDragging = false;
-        }
-
-        if (isDragging)
-        {
-            Vector3 currentPoint = GetHitPoint();
-            Vector3 move = dragOrigin - currentPoint;
-
-            // Move only when there's a valid difference
-            if (move.sqrMagnitude > 0.01f)
+            Plane plane = new Plane(Vector3.up, Vector3.zero);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            float entry;
+            if (plane.Raycast(ray, out entry)) 
             {
-                transform.position += new Vector3(move.x, 0, move.z) * dragSpeed;
-                ClampPosition();
+                dragStartPostion = ray.GetPoint(entry);
             }
         }
+        if (Input.GetMouseButton(1)) 
+        {
+            Plane plane = new Plane(Vector3.up, Vector3.zero);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            float entry;
+            if (plane.Raycast(ray, out entry))
+            {
+                dragCurrentPostion = ray.GetPoint(entry);
+                newPosition = transform.position + dragStartPostion - dragCurrentPostion;
+            }
+        }
+    }
+    private void HandleMovement()
+    {
+        tempPosition = newPosition;
+        newPosition.y = transform.position.y;
+        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementSpeed);
     }
 
     void HandleZoom()
@@ -80,22 +97,6 @@ public class CameraController : MonoBehaviour
             pos.y = Mathf.Clamp(pos.y, minZoom, maxZoom);
             cam.transform.localPosition = pos;
         }
-    }
-
-    Vector3 GetHitPoint()
-    {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-            return hit.point;
-        return transform.position; // Default if no hit
-    }
-
-    void ClampPosition()
-    {
-        Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, panLimitX.x, panLimitX.y);
-        pos.z = Mathf.Clamp(pos.z, panLimitZ.x, panLimitZ.y);
-        transform.position = pos;
     }
 }
 
