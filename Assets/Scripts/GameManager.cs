@@ -54,7 +54,10 @@ public class GameManager : MonoBehaviour
     {
         selectedTile = hexTile;
         MoveCamToLocation(hexTile.gameObject.transform.position);
+       
+
     }
+    
     public void MoveCamToLocation(Vector3 location) 
     {
         tempVector  = new Vector3(location.x + 3f, 4, location.z);
