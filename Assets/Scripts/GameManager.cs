@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public HexTile selectedTile = null;
     public List<TerrainResource> terrainResources = new List<TerrainResource>();
 
+    public GameObject Highlight;
+
     //UI
     [Header("UI")]
     public GameObject infoBase;

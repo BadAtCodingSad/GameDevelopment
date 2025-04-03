@@ -49,6 +49,15 @@ public class HexTile : MonoBehaviour
         while (!GameManager.instance.ready) { }
         if (type == TerrainType.Town)
             gameManager.townTile = this;
+        transform.GetChild(0).gameObject.AddComponent<HighlightSystem>();
+        GameObject highlight = Instantiate(gameManager.Highlight);
+        highlight.transform.parent = transform;
+        Vector3 yaseen = new Vector3();
+        yaseen.y = 0.12f;
+        highlight.transform.localPosition = yaseen;
+        highlight.transform.localRotation = Quaternion.identity;
+        transform.GetChild(0).gameObject.GetComponent<HighlightSystem>().Highlight = highlight;
+
 
         neighbours = gameManager.getNeighbours(transform);
         foreach(TerrainResource terrainResource in gameManager.terrainResources) 
