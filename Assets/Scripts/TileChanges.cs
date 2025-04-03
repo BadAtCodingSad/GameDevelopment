@@ -10,6 +10,6 @@ public class TileChanges : ScriptableObject
     }
     public ChangeType changeType;
     public int numberOfWorkersChanged;
-    public GameObject toBeBuilt;
+    public Buildable toBeBuilt;
     public HexTile affectedTile;
 }

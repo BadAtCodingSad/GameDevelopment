@@ -14,9 +14,6 @@ public class GameManager : MonoBehaviour
     public HexTile selectedTile = null;
     public List<TerrainResource> terrainResources = new List<TerrainResource>();
 
-
-
-
     //UI
     [Header("UI")]
     public GameObject infoBase;
@@ -27,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public TMP_InputField inputField;
     public TextMeshProUGUI numberOfFreeWorkersText;
+    public TMP_Dropdown buildableDropDown;
 
 
     public GameObject fogDetect;
@@ -44,9 +42,14 @@ public class GameManager : MonoBehaviour
     public int fish;
     public List<TileChanges> changes = new List<TileChanges>();
 
+    [Header("Building")]
+    public List<Buildable> buildables = new List<Buildable>(); 
+
+
     Vector3 camBasePos;
     Vector3 tempVector;
     HexTile prevHex;
+
     #region Singleton
     private void Awake()
     {
@@ -90,6 +93,17 @@ public class GameManager : MonoBehaviour
             tileFishRes.SetText("Fish:" + selectedTile.fish.ToString());
             prevHex = selectedTile;
             inputField.text = selectedTile.workersOnTile.ToString();
+            buildableDropDown.ClearOptions();
+            foreach (Buildable buildable in buildables) 
+            {
+                foreach (Buildable.TerrainType terrain in buildable.buildableTerrains) 
+                {
+                    if (terrain.ToString() == selectedTile.type.ToString()) 
+                    {
+                        buildableDropDown.options.Add(new TMP_Dropdown.OptionData(buildable.name));
+                    }
+                }
+            }
         }
     }
     public void SelectedHexTile(HexTile hexTile) 
