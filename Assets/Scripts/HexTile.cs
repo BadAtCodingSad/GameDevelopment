@@ -15,7 +15,7 @@ public class HexTile : MonoBehaviour
 
     public int workersOnTile;
 
-    private enum TerrainType
+    public enum TerrainType
     {
         Ocean,
         Forest,
@@ -24,7 +24,7 @@ public class HexTile : MonoBehaviour
         Mountain,
         Town
     }
-    private TerrainType type;
+    public TerrainType type;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
