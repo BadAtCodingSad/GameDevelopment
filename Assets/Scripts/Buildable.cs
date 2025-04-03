@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum BuildingType
+{
+    Factory,
+    Dam,
+    Residence
+}
 [CreateAssetMenu(fileName = "Buildable", menuName = "Scriptable Objects/Buildable")]
 public class Buildable : ScriptableObject
 {
@@ -19,5 +24,6 @@ public class Buildable : ScriptableObject
     public int oilCost;
     public int woodCost;
     public int fishCost;
+    public BuildingType type;
 
 }

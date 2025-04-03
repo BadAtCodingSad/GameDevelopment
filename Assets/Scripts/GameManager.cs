@@ -4,6 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
+
+public enum ToolType
+{
+    View,
+    Hammer,
+    Pickaxe
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -44,6 +52,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Building")]
     public List<Buildable> buildables = new List<Buildable>(); 
+    public ToolType currentTool = ToolType.View; 
+    public UIManager uiManager;
 
 
     Vector3 camBasePos;
@@ -108,10 +118,29 @@ public class GameManager : MonoBehaviour
     }
     public void SelectedHexTile(HexTile hexTile) 
     {
+        if (hexTile == null) {
+            Debug.LogError("Bankai");
+            return; }
         selectedTile = hexTile;
+
+
+        if (currentTool == ToolType.Hammer){ 
+            if (hexTile.type == HexTile.TerrainType.River){  
+                uiManager.ShowUI(uiManager.riverBuildList);}
+            else if (hexTile.type == HexTile.TerrainType.Mountain || hexTile.type == HexTile.TerrainType.Quarry){
+                uiManager.ShowUI(uiManager.buildList);}
+            }
+        else if (currentTool == ToolType.View)
+            {
+                uiManager.ShowUI(uiManager.viewUI);
+            }
         MoveCamToLocation(hexTile.gameObject.transform.position);
        
 
+    }
+     public void SetTool(ToolType tool)
+    {
+        currentTool = tool;
     }
     
     public void MoveCamToLocation(Vector3 location) 
@@ -155,5 +184,29 @@ public class GameManager : MonoBehaviour
         if (tileChanges.numberOfWorkersChanged != 0)
             changes.Add(tileChanges);
         Debug.Log(n);
+    }
+    public void BuildAction(string  type) {
+        int mCost=0;
+        int wCost=0;
+        int fCost=0;
+        int oCost=0;
+        foreach (Buildable buildable in buildables) {
+            if (buildable.type.ToString()==type){
+                mCost= buildable.metalCost;
+                wCost= buildable.woodCost;
+                fCost= buildable.fishCost;
+                oCost= buildable.oilCost;
+            }
+        }
+        if (metal>=mCost && wood>=wCost && fish>=fCost && oil>= oCost){
+            //adding stuff 
+            Debug.Log("Added building");
+            metal-=mCost;
+            wood-=wCost;
+            fish-=fCost;
+            oil-= oCost;
+
+        }
+
     }
 }
