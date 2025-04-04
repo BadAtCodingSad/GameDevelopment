@@ -31,10 +31,14 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI tileWoodRes;
     public TextMeshProUGUI tileOilRes;
     public TextMeshProUGUI tileFishRes;
+    public TextMeshProUGUI  tileType;
 
     public TMP_InputField inputField;
     public TextMeshProUGUI numberOfFreeWorkersText;
     public TMP_Dropdown buildableDropDown;
+    public GameObject resourceRowPrefab;
+    public Transform resourceContainer;
+    public Sprite metalIcon, woodIcon, oilIcon, fishIcon;
 
 
     public GameObject fogDetect;
@@ -81,6 +85,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         numberOfFreeWorkersText.text = numberOfFreeWorkers.ToString();
+        DeleteRows();
     }
     private void Update()
     {
@@ -99,10 +104,16 @@ public class GameManager : MonoBehaviour
 
         if (selectedTile != null && selectedTile != prevHex) 
         {
-            tileMetalRes.SetText("Metal:" + selectedTile.metal.ToString());
+            /*tileMetalRes.SetText("Metal:" + selectedTile.metal.ToString());
             tileOilRes.SetText("Oil:" + selectedTile.oil.ToString());
             tileWoodRes.SetText("Wood:" + selectedTile.wood.ToString());
-            tileFishRes.SetText("Fish:" + selectedTile.fish.ToString());
+            tileFishRes.SetText("Fish:" + selectedTile.fish.ToString());*/
+            tileType.SetText(selectedTile.type.ToString());
+            DeleteRows();
+            AddRow(selectedTile.metal, metalIcon, "Metal");
+            AddRow(selectedTile.wood, woodIcon, "Wood");
+            AddRow(selectedTile.oil, oilIcon, "Oil");
+            AddRow(selectedTile.fish, fishIcon, "Fish");
             prevHex = selectedTile;
             inputField.text = selectedTile.workersOnTile.ToString();
             buildableDropDown.ClearOptions();
@@ -210,5 +221,18 @@ public class GameManager : MonoBehaviour
 
         }
 
+    }
+   void AddRow(int amount, Sprite icon, string label)
+    {
+        if (amount <= 0) return; 
+        GameObject row = Instantiate(resourceRowPrefab, resourceContainer);
+        var rowUI = row.GetComponent<RowUI>();
+        rowUI.SetData(icon, amount, label);
+    }
+    void DeleteRows(){
+         foreach (Transform child in resourceContainer)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }
