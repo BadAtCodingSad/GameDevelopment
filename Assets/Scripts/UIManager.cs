@@ -1,7 +1,11 @@
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
+
 {
+    public int maxHealth=100;
+    public int currentHealth;
+
     public GameObject buildList;
     public GameObject riverBuildList;
     public GameObject viewUI;
@@ -11,6 +15,8 @@ public class UIManager : MonoBehaviour
         buildList.SetActive(false);
         riverBuildList.SetActive(false);
         viewUI.SetActive(false);
+        currentHealth = maxHealth;
+
     }
 
     // Update is called once per frame
@@ -20,5 +26,13 @@ public class UIManager : MonoBehaviour
         riverBuildList.SetActive(false);
         viewUI.SetActive(false);
         uiElement.SetActive(true);
+        
+    }
+
+    public void LoseHealth(int health){
+        currentHealth -= health;
+        if(currentHealth <= 0){
+            //Game Over
+        }
     }
 }
