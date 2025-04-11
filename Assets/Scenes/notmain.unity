@@ -323,12 +323,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed3bcc378a1a2441a28e353392c7551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dragSpeed: 2
   zoomSpeed: 5
   minZoom: 4
   maxZoom: 10
+  movementSpeed: 0.5
   panLimitX: {x: 5, y: 35}
   panLimitZ: {x: 5, y: 35}
+  newPosition: {x: 0, y: 0, z: 0}
+  dragStartPostion: {x: 0, y: 0, z: 0}
+  dragCurrentPostion: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +657,36 @@ MonoBehaviour:
   hexTiles: []
   ready: 1
   townTile: {fileID: 0}
+  selectedTile: {fileID: 0}
+  terrainResources: []
+  Highlight: {fileID: 0}
+  infoBase: {fileID: 0}
+  tileMetalRes: {fileID: 0}
+  tileWoodRes: {fileID: 0}
+  tileOilRes: {fileID: 0}
+  tileFishRes: {fileID: 0}
+  tileType: {fileID: 0}
+  inputField: {fileID: 0}
+  numberOfFreeWorkersText: {fileID: 0}
+  buildableDropDown: {fileID: 0}
+  resourceRowPrefab: {fileID: 0}
+  resourceContainer: {fileID: 0}
+  metalIcon: {fileID: 0}
+  woodIcon: {fileID: 0}
+  oilIcon: {fileID: 0}
+  fishIcon: {fileID: 0}
   fogDetect: {fileID: 4787307281995590586, guid: bd1e3608538e3eb46bc5643776753b1c, type: 3}
+  numberOfFreeWorkers: 10000
+  numberofActions: 0
+  numberOfTurns: 0
+  metal: 0
+  oil: 0
+  wood: 0
+  fish: 0
+  changes: []
+  buildables: []
+  currentTool: 0
+  uiManager: {fileID: 0}
 --- !u!4 &1794925301
 Transform:
   m_ObjectHideFlags: 0

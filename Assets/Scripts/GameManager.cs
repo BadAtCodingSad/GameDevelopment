@@ -198,6 +198,7 @@ public class GameManager : MonoBehaviour
             changes.Add(tileChanges);
         Debug.Log(n);
     }
+
     public void BuildAction(string  type) {
         int mCost=0;
         int wCost=0;
@@ -212,13 +213,22 @@ public class GameManager : MonoBehaviour
             }
         }
         if (metal>=mCost && wood>=wCost && fish>=fCost && oil>= oCost){
-            //adding stuff 
-            Debug.Log("Added building");
+            //adding stuff to changes 
+            if (type=="Factory"){
+                Debug.Log("Factory built");
+                }
+            else
+                Debug.Log("House built");
+            
+            Build(type);
+
             metal-=mCost;
             wood-=wCost;
             fish-=fCost;
             oil-= oCost;
-
+        }
+        else{
+            Debug.Log("No enough resources");
         }
 
     }
@@ -235,4 +245,70 @@ public class GameManager : MonoBehaviour
             Destroy(child.gameObject);
         }
     }
+
+public void Build(string type)
+{
+    if (selectedTile == null) return;
+
+    Buildable targetBuildable = null;
+    foreach (Buildable buildable in buildables) {
+        if (buildable.type.ToString() == type) {
+            targetBuildable = buildable;
+            break;
+        }
+    }
+
+    if (targetBuildable == null) return;
+
+    Vector3 position = selectedTile.transform.position;
+    Quaternion rotation = selectedTile.transform.rotation;
+    Transform parent = selectedTile.transform.parent;
+
+    // Remove the old tile from the hexTiles list
+    hexTiles.Remove(selectedTile.transform);
+    Destroy(selectedTile.gameObject);
+    GameObject newBuilding = Instantiate(targetBuildable.buildablePrefab, position, rotation, parent);
+    
+    // Add the new building to hexTiles list
+    hexTiles.Add(newBuilding.transform);
+
+    // Get the HexTile component of the new building
+    HexTile newTile = newBuilding.GetComponent<HexTile>();
+    if (newTile == null)
+    {
+        newTile = newBuilding.AddComponent<HexTile>();
+    }
+
+
+
+    switch(targetBuildable.type.ToString())
+    {
+        case "Factory":
+            newTile.type = HexTile.TerrainType.Factory;
+            break;
+        case "Dam":
+            newTile.type = HexTile.TerrainType.Dam;
+            break;
+        case "Residence":
+            newTile.type = HexTile.TerrainType.Town;
+            break;
+    }
+
+    // Adding collider from the goat
+    MeshCollider meshCollider = newBuilding.GetComponent<MeshCollider>();
+    if (meshCollider == null)
+    {
+        Transform meshChild = newBuilding.transform.GetChild(0);
+        if (meshChild != null)
+        {
+            meshCollider = meshChild.GetComponent<MeshCollider>();
+            if (meshCollider == null)
+            {
+                meshCollider = meshChild.gameObject.AddComponent<MeshCollider>();
+                meshCollider.convex = true;
+            }
+        }
+    }
+    selectedTile = newTile;
+}
 }

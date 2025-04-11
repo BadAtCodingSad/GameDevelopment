@@ -22,7 +22,10 @@ public class HexTile : MonoBehaviour
         Quarry,
         River,
         Mountain,
-        Town
+        Town,
+        Factory,
+        Dam,
+        WindTurbine
     }
     public TerrainType type;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
