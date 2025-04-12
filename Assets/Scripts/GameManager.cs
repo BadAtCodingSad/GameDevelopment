@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        numberOfFreeWorkersText.text = numberOfFreeWorkers.ToString();
+        //numberOfFreeWorkersText.text = numberOfFreeWorkers.ToString();
         DeleteRows();
     }
     private void Update()

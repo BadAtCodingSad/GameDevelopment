@@ -8,26 +8,35 @@ public class InventoryManager : MonoBehaviour
     public GameObject Inventory;
     public Text WoodT;
     public Text FishT;
-    public Text OreT;
-    public Text ROreT;
-    private int WoodCap=100;
-    private int FishCap=100;
-    private int OreCap=100;
-    private int ROreCap=100;
+    public Text MetalT;
+    
+    public Text OilT;
+  
     private int Wood=0;
-    private int Fish=0;
-    private int Ore=0;
-    private int ROre=0;
+    private int Fish=50;
+    private int Oil=0;
+    private int Metal=0;
     private bool MenuActivated;
+    public static InventoryManager Instance;
+
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
+
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Inventory.SetActive(false);
         MenuActivated=false;
-        WoodT.text="Wood: 0/"+WoodCap;
-        FishT.text="Fish: 0/"+FishCap;
-        OreT.text="Ore: 0/"+OreCap;
-        ROreT.text="Refined Ore: 0/"+ROreCap;
+        WoodT.text="Wood: 0/";
+        FishT.text="Fish: 0/";
+        MetalT.text="Metal: 0/";
+        OilT.text="Oil Ore: 0/";
 
         
     }
@@ -45,67 +54,75 @@ public class InventoryManager : MonoBehaviour
            Inventory.SetActive(true);
            MenuActivated=true;
         }
-        WoodT.text="Wood: "+Wood+"/"+WoodCap;
-        FishT.text="Fish: "+Fish+"/"+FishCap;
-        OreT.text="Ore: "+Ore+"/"+OreCap;
-        ROreT.text="Refined Ore: "+ROre+"/"+ROreCap;
-    }
-    public void increaseWoodCap(int amount){
-        WoodCap+=amount;
         
+
+        WoodT.text="Wood: "+Wood;
+        FishT.text="Fish: "+Fish;
+        MetalT.text="Metal: "+Metal;
+        OilT.text="Oil: "+Oil;
     }
-    public void increaseFishCap(int amount){
-        FishCap+=amount;
+  
+    public void addWood(int amount){//basically harvest from a tile
         
-    }
-    public void increaseOreCap(int amount){
-        OreCap+=amount;
-        
-    }
-    public void increaseROreCap(int amount){
-        ROreCap+=amount;
-        
-    }
-    public void addWood(int amount){
-        if(Wood+amount>WoodCap){
-            Wood=WoodCap;
-            //display message for being full
-        }
-        else{
             Wood+=amount;
         }
         
-    }
+    public void addMetal(int amount){
+        
+            Metal+=amount;
+        }
+    public void addOil(int amount){
+        
+            Oil+=amount;
+        }
     public void addFish(int amount){
-        if(Fish+amount>FishCap){
-            Fish=FishCap;
-            //display message for being full
-        }
-        else{
+        
             Fish+=amount;
-        }
+    
         
     }
-    public void addOre(int amount){
-        if(Ore+amount>OreCap){
-            Ore=OreCap;
-            //display message for being full
+   
+    public void removeWood(int amount){
+            if(Wood-amount<0){
+                Debug.Log("Not enough wood");
+                return;
+            }
+            Wood-=amount;
         }
-        else{
-            Ore+=amount;
+    public void removeMetal(int amount){
+        if(Metal-amount<0){
+                Debug.Log("Not enough metal");
+                return;
+            }
+            Metal-=amount;
         }
-        
-    }
-    public void addROre(int amount){
-        if(ROre+amount>ROreCap){
-            ROre=ROreCap;
-            //display message for being full
+    public void removeOil(int amount){//basically use up for an item.
+        if(Oil-amount<0){
+                Debug.Log("Not enough oil");
+                return;
+            }
+            Oil-=amount;
         }
-        else{
-            ROre+=amount;
+    public void removeFish(int amount){
+        if(Fish-amount<0){
+                Debug.Log("Not enough fish");
+                return;
+            }
+            Fish-=amount;
         }
-        
-    }
-    //not sure if we need a decrease on the cap;
 
+    public int getWood(){
+        return Wood;
+    }
+    public int getFish(){
+        return Fish;
+    }
+    public int getMetal(){
+        return Metal;
+    }
+    public int getOil(){
+        return Oil;
+    }
+   
+    
 }
