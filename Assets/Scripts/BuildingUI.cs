@@ -17,4 +17,8 @@ public class BuildingUI : MonoBehaviour
     {
        GameManager.instance.BuildAction("Dam");
     }
+
+    public void onWindButtonClciked(){
+      GameManager.instance.BuildAction("WindTurbine");
+    }
 }

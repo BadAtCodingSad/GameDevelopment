@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Factory
   m_EditorClassIdentifier: 
   buildableTerrains: 0400000002000000
-  buildablePrefab: {fileID: 0}
+  buildablePrefab: {fileID: 7103697266255479796, guid: e3997679fbf585b40a454684ecb2f437, type: 3}
   metalCost: 0
   oilCost: 0
   woodCost: 0
   fishCost: 0
+  type: 0

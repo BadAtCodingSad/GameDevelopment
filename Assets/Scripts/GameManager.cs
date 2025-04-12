@@ -166,6 +166,7 @@ public class GameManager : MonoBehaviour
         List<Transform> list = new List<Transform>();
         foreach (Transform child in hexTiles) 
         {
+             if (child == null || self == null) continue;
             if (child != self && Vector3.Distance(child.position, self.position) < 1) 
             {
                 list.Add(child);
@@ -217,8 +218,10 @@ public class GameManager : MonoBehaviour
             if (type=="Factory"){
                 Debug.Log("Factory built");
                 }
-            else
+            else if (type=="Residence")
                 Debug.Log("House built");
+            else
+                Debug.Log("wind built");
             
             Build(type);
 
@@ -263,13 +266,10 @@ public void Build(string type)
     Vector3 position = selectedTile.transform.position;
     Quaternion rotation = selectedTile.transform.rotation;
     Transform parent = selectedTile.transform.parent;
-
-    // Remove the old tile from the hexTiles list
     hexTiles.Remove(selectedTile.transform);
     Destroy(selectedTile.gameObject);
     GameObject newBuilding = Instantiate(targetBuildable.buildablePrefab, position, rotation, parent);
     
-    // Add the new building to hexTiles list
     hexTiles.Add(newBuilding.transform);
 
     // Get the HexTile component of the new building
@@ -291,6 +291,9 @@ public void Build(string type)
             break;
         case "Residence":
             newTile.type = HexTile.TerrainType.Town;
+            break;
+        case "WindTurbine":
+            newTile.type = HexTile.TerrainType.WindTurbine;
             break;
     }
 
