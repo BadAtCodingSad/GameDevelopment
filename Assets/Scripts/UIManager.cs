@@ -3,8 +3,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 
 {
-    public int maxHealth=100;
-    public int currentHealth;
+
 
     public GameObject buildList;
     public GameObject riverBuildList;
@@ -15,7 +14,7 @@ public class UIManager : MonoBehaviour
         buildList.SetActive(false);
         riverBuildList.SetActive(false);
         viewUI.SetActive(false);
-        currentHealth = maxHealth;
+        
 
     }
 
@@ -29,10 +28,5 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public void LoseHealth(int health){
-        currentHealth -= health;
-        if(currentHealth <= 0){
-            //Game Over
-        }
-    }
+    
 }
