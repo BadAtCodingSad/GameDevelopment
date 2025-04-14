@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: b04519e1c6f874970a3df2edd4303c31
+TrueTypeFontImporter:
+  serializedVersion: 2
+  fontSize: 5
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames: []
+  customCharacters: 
+  fontRenderingMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Source Files/Fonts/OpenSans-Familiy/OpenSans-SemiboldItalic.ttf
+  uploadId: 394383

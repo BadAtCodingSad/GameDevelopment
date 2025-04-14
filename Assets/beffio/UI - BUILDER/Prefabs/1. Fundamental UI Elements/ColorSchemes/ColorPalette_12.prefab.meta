@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d1beb6d78a1fcf24fa9891820cd7f759
+labels:
+- colorschemes
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Prefabs/1. Fundamental UI Elements/ColorSchemes/ColorPalette_12.prefab
+  uploadId: 394383

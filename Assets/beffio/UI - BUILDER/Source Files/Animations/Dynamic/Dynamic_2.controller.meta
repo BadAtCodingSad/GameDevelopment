@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d285bb6e32b5efd41a4a3279862b1d78
+timeCreated: 1429718460
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Source Files/Animations/Dynamic/Dynamic_2.controller
+  uploadId: 394383

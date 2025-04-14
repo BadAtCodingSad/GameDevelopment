@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 79b158240990d534eb494cff7304202d
+timeCreated: 1429717577
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Source Files/Animations/Buttons/ButtonAnimation_5.controller
+  uploadId: 394383

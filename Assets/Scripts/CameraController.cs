@@ -84,6 +84,8 @@ public class CameraController : MonoBehaviour
     {
         tempPosition = newPosition;
         newPosition.y = transform.position.y;
+        newPosition.x = Mathf.Clamp(newPosition.x, 2, 40);
+        newPosition.z = Mathf.Clamp(newPosition.z, 2, 40);
         transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * movementSpeed);
     }
 

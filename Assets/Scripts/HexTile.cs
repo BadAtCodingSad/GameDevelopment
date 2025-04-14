@@ -71,7 +71,6 @@ public class HexTile : MonoBehaviour
                 wood = Mathf.FloorToInt(Random.Range(terrainResource.wood.x, terrainResource.wood.y));
                 oil = Mathf.FloorToInt(Random.Range(terrainResource.oil.x, terrainResource.oil.y));
                 fish = Mathf.FloorToInt(Random.Range(terrainResource.fish.x, terrainResource.fish.y));
-
             }
         }
     }
@@ -80,5 +79,12 @@ public class HexTile : MonoBehaviour
     void Update()
     {
         
+    }
+    public string getExtractionRate() 
+    {
+        return "+ " + Mathf.RoundToInt(terrainResource.metalRate * workersOnTile) + " metal/turn" + "+ " 
+            + Mathf.RoundToInt(terrainResource.oilRate * workersOnTile) + " oil/turn"
+            + "+ " + Mathf.RoundToInt(terrainResource.fishRate * workersOnTile) + " fish/turn"
+            + "+ " + Mathf.RoundToInt(terrainResource.woodRate * workersOnTile) + " wood/turn"; 
     }
 }

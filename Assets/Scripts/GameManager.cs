@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.Serialization.Formatters;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
@@ -26,19 +27,20 @@ public class GameManager : MonoBehaviour
 
     //UI
     [Header("UI")]
-    public GameObject infoBase;
     public TextMeshProUGUI tileMetalRes;
     public TextMeshProUGUI tileWoodRes;
     public TextMeshProUGUI tileOilRes;
     public TextMeshProUGUI tileFishRes;
     public TextMeshProUGUI  tileType;
-
     public TMP_InputField inputField;
-    public TextMeshProUGUI numberOfFreeWorkersText;
-    public TMP_Dropdown buildableDropDown;
+    public TextMeshProUGUI workerRateInfo;
+
+    public GameObject buildInfoPrefab;
+    public GameObject buildInfoContainer;
     public GameObject resourceRowPrefab;
     public Transform resourceContainer;
     public Sprite metalIcon, woodIcon, oilIcon, fishIcon;
+    public Transform worldspaceCanvas;
 
 
     public GameObject fogDetect;
@@ -114,9 +116,28 @@ public class GameManager : MonoBehaviour
             AddRow(selectedTile.wood, woodIcon, "Wood");
             AddRow(selectedTile.oil, oilIcon, "Oil");
             AddRow(selectedTile.fish, fishIcon, "Fish");
+            workerRateInfo.text = selectedTile.getExtractionRate();
+            foreach (Buildable buildable in buildables) 
+            {
+                foreach (Buildable.TerrainType terrainType in buildable.buildableTerrains) 
+                {
+                    if (terrainType.ToString() == selectedTile.type.ToString()) 
+                    {
+                        BuildInfo buildInfo = Instantiate(buildInfoPrefab, buildInfoContainer.transform).GetComponent<BuildInfo>();
+                        buildInfo.metal.text = buildable.metalCost.ToString();
+                        buildInfo.oil.text = buildable.oilCost.ToString();
+                        buildInfo.wood.text = buildable.woodCost.ToString();
+                        buildInfo.fish.text = buildable.fishCost.ToString();
+                        buildInfo.icon.sprite = buildable.icon;
+                        buildInfo.buildingName.text = buildable.buildingName;
+                        buildInfo.buildable = buildable;
+                    }
+                }
+            }
+            
             prevHex = selectedTile;
             inputField.text = selectedTile.workersOnTile.ToString();
-            buildableDropDown.ClearOptions();
+            /*buildableDropDown.ClearOptions();
             foreach (Buildable buildable in buildables) 
             {
                 foreach (Buildable.TerrainType terrain in buildable.buildableTerrains) 
@@ -126,7 +147,7 @@ public class GameManager : MonoBehaviour
                         buildableDropDown.options.Add(new TMP_Dropdown.OptionData(buildable.name));
                     }
                 }
-            }
+            }*/
         }
     }
     public void SelectedHexTile(HexTile hexTile) 
@@ -137,18 +158,19 @@ public class GameManager : MonoBehaviour
         selectedTile = hexTile;
 
 
-        if (currentTool == ToolType.Hammer){ 
-            if (hexTile.type == HexTile.TerrainType.River){  
-                uiManager.ShowUI(uiManager.riverBuildList);}
-            else if (hexTile.type == HexTile.TerrainType.Mountain || hexTile.type == HexTile.TerrainType.Quarry){
-                uiManager.ShowUI(uiManager.buildList);}
-            }
+        if (currentTool == ToolType.Hammer)
+        { 
+            uiManager.ShowUI(uiManager.buildList);
+        }
         else if (currentTool == ToolType.View)
-            {
-                uiManager.ShowUI(uiManager.viewUI);
-            }
+        {
+            uiManager.ShowUI(uiManager.viewUI);
+        }
         MoveCamToLocation(hexTile.gameObject.transform.position);
-       
+        Vector3 canvasLocation = new Vector3(hexTile.gameObject.transform.position.x-1, 1.2f, hexTile.gameObject.transform.position.z);
+        worldspaceCanvas.transform.position = canvasLocation;
+
+
 
     }
      public void SetTool(ToolType tool)
@@ -184,7 +206,8 @@ public class GameManager : MonoBehaviour
         tileChanges.numberOfWorkersChanged = n - selectedTile.workersOnTile;
         selectedTile.workersOnTile += tileChanges.numberOfWorkersChanged;
         numberOfFreeWorkers -= tileChanges.numberOfWorkersChanged;
-        numberOfFreeWorkersText.text = numberOfFreeWorkers.ToString();
+        workerRateInfo.text = selectedTile.getExtractionRate();
+        //numberOfFreeWorkersText.text = numberOfFreeWorkers.ToString();
         TileChanges changeToBeRemoved = null;
         foreach (TileChanges change in changes) 
         {
@@ -197,33 +220,43 @@ public class GameManager : MonoBehaviour
         changes.Remove(changeToBeRemoved);
         if (tileChanges.numberOfWorkersChanged != 0)
             changes.Add(tileChanges);
-        Debug.Log(n);
+        //Debug.Log(n);
+    }
+    public void BuildUpdate(Buildable buildable)
+    {
+        int n;
+        //var isNumeric = int.TryParse(inputField.text, out n);
+        TileChanges tileChanges = ScriptableObject.CreateInstance<TileChanges>();
+        tileChanges.affectedTile = selectedTile;
+        tileChanges.changeType = TileChanges.ChangeType.build;
+        tileChanges.toBeBuilt = buildable;
+        TileChanges changeToBeRemoved = null;
+        foreach (TileChanges change in changes)
+        {
+            if (change.affectedTile == selectedTile) 
+            {
+                changeToBeRemoved = change;
+            }
+        }
+        changes.Remove(changeToBeRemoved);
+        changes.Add(tileChanges);
     }
 
-    public void BuildAction(string  type) {
+    public void BuildAction(Buildable  build) {
         int mCost=0;
         int wCost=0;
         int fCost=0;
         int oCost=0;
         foreach (Buildable buildable in buildables) {
-            if (buildable.type.ToString()==type){
-                mCost= buildable.metalCost;
-                wCost= buildable.woodCost;
-                fCost= buildable.fishCost;
-                oCost= buildable.oilCost;
-            }
+            if(buildable == build )
+            mCost= buildable.metalCost;
+            wCost= buildable.woodCost;
+            fCost= buildable.fishCost;
+            oCost= buildable.oilCost;
         }
         if (metal>=mCost && wood>=wCost && fish>=fCost && oil>= oCost){
-            //adding stuff to changes 
-            if (type=="Factory"){
-                Debug.Log("Factory built");
-                }
-            else if (type=="Residence")
-                Debug.Log("House built");
-            else
-                Debug.Log("wind built");
             
-            Build(type);
+            Build(build);
 
             metal-=mCost;
             wood-=wCost;
@@ -247,19 +280,18 @@ public class GameManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+        foreach (Transform child in buildInfoContainer.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 
-public void Build(string type)
+public void Build(Buildable build)
 {
     if (selectedTile == null) return;
 
-    Buildable targetBuildable = null;
-    foreach (Buildable buildable in buildables) {
-        if (buildable.type.ToString() == type) {
-            targetBuildable = buildable;
-            break;
-        }
-    }
+    Buildable targetBuildable = build;
+
 
     if (targetBuildable == null) return;
 

@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: c68e84269e1fe144f9ec1c8b8a344651
+labels:
+- retina
+- gamestartup
+- easyui
+- weather
+- technology
+- social
+- navigation
+- media
+- location
+- windows
+- android
+- ios8
+- macosx
+- ipad
+- modernui
+- iphone
+- modernstyle
+- appexample
+- gameexample
+- uitools
+- 5.0
+- unity5
+- 4.6
+- gui
+- ui
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Prefabs/3. App Examples/Mobile/__MobileAllExamples.prefab
+  uploadId: 394383

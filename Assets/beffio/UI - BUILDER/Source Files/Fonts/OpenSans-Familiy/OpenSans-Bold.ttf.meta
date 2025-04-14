@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 7dfc2e1472ac84e1bb749a8a9f934483
+TrueTypeFontImporter:
+  serializedVersion: 2
+  fontSize: 5
+  forceTextureCase: -2
+  characterSpacing: 1
+  characterPadding: 0
+  includeFontData: 1
+  use2xBehaviour: 0
+  fontNames: []
+  customCharacters: 
+  fontRenderingMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Source Files/Fonts/OpenSans-Familiy/OpenSans-Bold.ttf
+  uploadId: 394383

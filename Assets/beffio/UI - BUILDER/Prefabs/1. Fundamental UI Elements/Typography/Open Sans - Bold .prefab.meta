@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 484d3ec509ab0f94bbe19ffd6fcf0f65
+labels:
+- typography
+- fontstyle
+- pixelperfect
+- text
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Prefabs/1. Fundamental UI Elements/Typography/Open
+    Sans - Bold .prefab
+  uploadId: 394383

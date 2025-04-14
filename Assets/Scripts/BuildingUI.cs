@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BuildingUI : MonoBehaviour
 {
-
+    /*
     public void OnFactoryButtonClicked()
     {
          GameManager.instance.BuildAction("Factory");
@@ -20,5 +20,5 @@ public class BuildingUI : MonoBehaviour
 
     public void onWindButtonClciked(){
       GameManager.instance.BuildAction("WindTurbine");
-    }
+    }*/
 }

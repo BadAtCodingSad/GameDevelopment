@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: 67477fc1fd9bae240a3fb6d35c8ad2fa
+labels:
+- panels
+- ui
+- gui
+- slicedsprites
+- componentelements
+- icons
+- typography
+- buttons
+- tags
+- labels
+- sliders
+- toggle
+- switch
+- scrollbar
+- input
+- chart
+- scrollview
+- multidevice
+- fundamentaluiasset
+- sliceshapes
+- colorschemes
+- pixelperfect
+- fontstyle
+- uitools
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Prefabs/2. Ready-Made Component Elements/__Ready-Made
+    Component Elements.prefab
+  uploadId: 394383

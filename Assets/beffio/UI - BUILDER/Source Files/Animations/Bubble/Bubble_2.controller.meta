@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fb021168d8d3ea644bd5ae8a5836d0e3
+timeCreated: 1429720039
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Source Files/Animations/Bubble/Bubble_2.controller
+  uploadId: 394383
