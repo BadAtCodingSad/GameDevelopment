@@ -17,4 +17,9 @@ public class TerrainResource : ScriptableObject
     public Vector2 wood;
     public Vector2 oil;
     public Vector2 fish;
+
+    public float metalRate;
+    public float woodRate;
+    public float oilRate;
+    public float fishRate;
 }

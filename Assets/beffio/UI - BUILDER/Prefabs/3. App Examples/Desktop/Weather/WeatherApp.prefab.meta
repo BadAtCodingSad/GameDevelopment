@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3f8615137dfc6174893f350ef2e99f11
+timeCreated: 1429701890
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Prefabs/3. App Examples/Desktop/Weather/WeatherApp.prefab
+  uploadId: 394383

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 88384fcdd8e2e744cb6719aee0ba0d1a
+labels:
+- typography
+- fontstyle
+- pixelperfect
+- text
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Prefabs/1. Fundamental UI Elements/Typography/Open
+    Sans - Italic .prefab
+  uploadId: 394383

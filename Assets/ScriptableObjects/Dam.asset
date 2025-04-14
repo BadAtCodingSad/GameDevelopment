@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a7f6ea34b41d45b8f56b5016be799, type: 3}
   m_Name: Dam
   m_EditorClassIdentifier: 
+  buildingName: Dam
   buildableTerrains: 03000000
   buildablePrefab: {fileID: 0}
   metalCost: 0
   oilCost: 10
   woodCost: 80
   fishCost: 0
+  icon: {fileID: 21300000, guid: 44c4680fdd836c84fbe9cac99bd8ce3b, type: 3}
   type: 1

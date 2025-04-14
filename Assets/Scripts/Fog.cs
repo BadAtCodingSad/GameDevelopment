@@ -22,7 +22,7 @@ public class Fog : MonoBehaviour
 
         foreach (Transform obj in clouds) 
         {
-            Vector3 scale = new Vector3(Random.Range(minScale,maxScale),Random.Range(minScale,maxScale), Random.Range(minScale, maxScale));
+            Vector3 scale = new Vector3(Random.Range(minScale,maxScale),obj.localScale.y, Random.Range(minScale, maxScale));
             obj.localScale = scale;
         }
     }

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1cf25b5643718b2448aa640335046e05
+timeCreated: 1429701761
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Prefabs/3. App Examples/Desktop/Calculator/Calculator.prefab
+  uploadId: 394383

@@ -4,16 +4,15 @@ public class UIManager : MonoBehaviour
 
 {
 
-
     public GameObject buildList;
-    public GameObject riverBuildList;
     public GameObject viewUI;
+    public GameObject workersUI;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         buildList.SetActive(false);
-        riverBuildList.SetActive(false);
         viewUI.SetActive(false);
+        workersUI.SetActive(false);
         
 
     }
@@ -22,8 +21,8 @@ public class UIManager : MonoBehaviour
      public void ShowUI(GameObject uiElement)
     {
         buildList.SetActive(false);
-        riverBuildList.SetActive(false);
         viewUI.SetActive(false);
+        workersUI.SetActive(false);
         uiElement.SetActive(true);
         
     }

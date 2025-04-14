@@ -13,5 +13,12 @@ public class ToolbarUI : MonoBehaviour
     public void OnHammerButtonClicked()
     {
         GameManager.instance.SetTool(ToolType.Hammer);
+        uiManager.ShowUI(uiManager.buildList);
+    }
+
+    public void OnWorkerButtonClicked()
+    {
+        GameManager.instance.SetTool(ToolType.Pickaxe);
+        uiManager.ShowUI(uiManager.workersUI);
     }
 }

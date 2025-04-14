@@ -19,12 +19,14 @@ public class Buildable : ScriptableObject
         Mountain,
         Town
     }
+    public string buildingName;
     public List<TerrainType> buildableTerrains = new List<TerrainType>();
     public GameObject buildablePrefab;
     public int metalCost;
     public int oilCost;
     public int woodCost;
     public int fishCost;
+    public Sprite icon;
     public BuildingType type;
 
 }

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5ca06b43e47abd645aadb57da61e58a5
+timeCreated: 1429724544
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 29757
+  packageName: UI - Builder
+  packageVersion: 1.9
+  assetPath: Assets/beffio/UI - BUILDER/Prefabs/4. Animations Examples/Click&Hovers/CircleButton_5.prefab
+  uploadId: 394383
