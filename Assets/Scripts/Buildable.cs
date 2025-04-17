@@ -26,7 +26,19 @@ public class Buildable : ScriptableObject
     public int oilCost;
     public int woodCost;
     public int fishCost;
+    public int energyCost;
+
+
     public Sprite icon;
     public BuildingType type;
+    public string info;
+
+    [Header("Per Turn Effects")]
+    public int energyRate;
+    public int pollutionRate;
+    public int fishDepletionRate;
+
+
+
 
 }

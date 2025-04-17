@@ -1,9 +1,14 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.Serialization.Formatters;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.UI;
 
 
 public enum ToolType
@@ -16,6 +21,7 @@ public enum ToolType
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public ExpansionManager expansionManager;
     public CameraController cam;
     public List<Transform> hexTiles = new List<Transform>();
     public bool ready = false;
@@ -27,18 +33,16 @@ public class GameManager : MonoBehaviour
 
     //UI
     [Header("UI")]
-    public TextMeshProUGUI tileMetalRes;
-    public TextMeshProUGUI tileWoodRes;
-    public TextMeshProUGUI tileOilRes;
-    public TextMeshProUGUI tileFishRes;
     public TextMeshProUGUI  tileType;
     public TMP_InputField inputField;
     public TextMeshProUGUI workerRateInfo;
-
+    public TextMeshProUGUI populationDisplay;
     public GameObject buildInfoPrefab;
     public GameObject buildInfoContainer;
     public GameObject resourceRowPrefab;
+    public GameObject workersMask;
     public Transform resourceContainer;
+
     public Sprite metalIcon, woodIcon, oilIcon, fishIcon;
     public Transform worldspaceCanvas;
 
@@ -46,12 +50,23 @@ public class GameManager : MonoBehaviour
     public GameObject fogDetect;
     private GameObject fogClearer; // Scale this
     private bool townTileSet = false;
+    
+    public TextMeshProUGUI pollutionAmount;
+    public Slider pollutionBar;
+
+
+    public float maxPollution;
+    public float pollution;
+    public int maxPopulation = 100;
+    public int population = 100;
+    public int energy;
 
     [Header("Resource")]
     public int numberOfFreeWorkers = 10000;
     public int numberofActions = 0;
     public int numberOfTurns = 0;
-
+    public int populationLimitIncreasePerBuilding = 100;
+    public float workerEfficiencyPerGym = 0.4f;
     public int metal;
     public int oil;
     public int wood;
@@ -59,6 +74,8 @@ public class GameManager : MonoBehaviour
     public List<TileChanges> changes = new List<TileChanges>();
 
     [Header("Building")]
+    public List<HexTile> residences = new List<HexTile>();
+    public List<HexTile> gyms = new List<HexTile>();
     public List<Buildable> buildables = new List<Buildable>(); 
     public ToolType currentTool = ToolType.View; 
     public UIManager uiManager;
@@ -68,6 +85,10 @@ public class GameManager : MonoBehaviour
     Vector3 tempVector;
     HexTile prevHex;
 
+    // Turn Mec
+    public static event Action OnTurnEnd;
+
+    public List<HexTile> Q = new List<HexTile>();
     #region Singleton
     private void Awake()
     {
@@ -88,67 +109,91 @@ public class GameManager : MonoBehaviour
     {
         //numberOfFreeWorkersText.text = numberOfFreeWorkers.ToString();
         DeleteRows();
+        pollutionBar.maxValue = maxPollution;
     }
     private void Update()
     {
+        pollutionBar.value = pollution;
+        pollutionAmount.text =(pollution/maxPollution *100).ToString() + "%";
+
         if (townTile != null && !townTileSet) 
         {
             Vector3 spawnPos = new Vector3(townTile.gameObject.transform.position.x, 0.5f, townTile.gameObject.transform.position.z);
             camBasePos = townTile.gameObject.transform.position;
             fogClearer = Instantiate(fogDetect, spawnPos, Quaternion.identity);
             townTileSet = true;
+            expansionManager.fogClearer = fogClearer;
             MoveCamToLocation(camBasePos);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             MoveCamToLocation(camBasePos);
         }
-
         if (selectedTile != null && selectedTile != prevHex) 
         {
-            /*tileMetalRes.SetText("Metal:" + selectedTile.metal.ToString());
-            tileOilRes.SetText("Oil:" + selectedTile.oil.ToString());
-            tileWoodRes.SetText("Wood:" + selectedTile.wood.ToString());
-            tileFishRes.SetText("Fish:" + selectedTile.fish.ToString());*/
-            tileType.SetText(selectedTile.type.ToString());
-            DeleteRows();
-            AddRow(selectedTile.metal, metalIcon, "Metal");
-            AddRow(selectedTile.wood, woodIcon, "Wood");
-            AddRow(selectedTile.oil, oilIcon, "Oil");
-            AddRow(selectedTile.fish, fishIcon, "Fish");
-            workerRateInfo.text = selectedTile.getExtractionRate();
-            foreach (Buildable buildable in buildables) 
+            UpdateUI();
+        }
+        if (selectedTile == null) 
+        {
+            worldspaceCanvas.transform.position = new Vector3(200,200,200);
+            uiManager.HideChanges();
+        }  
+    }
+    private void UpdateUI() 
+    {
+        tileType.SetText(selectedTile.tileName);
+        DeleteRows();
+        AddRow(selectedTile.metal, metalIcon, "Metal");
+        AddRow(selectedTile.wood, woodIcon, "Wood");
+        AddRow(selectedTile.oil, oilIcon, "Oil");
+        AddRow(selectedTile.fish, fishIcon, "Fish");
+        if (selectedTile.isBuilt)
+        {
+            workersMask.GetComponentInChildren<TextMeshProUGUI>().text = selectedTile.GetComponent<HexTile>().buildable.info;
+            workersMask.SetActive(true);
+        }
+        else
+            workersMask.SetActive(false);
+        workerRateInfo.text = selectedTile.getExtractionRate();
+        foreach (Buildable buildable in buildables)
+        {
+            foreach (Buildable.TerrainType terrainType in buildable.buildableTerrains)
             {
-                foreach (Buildable.TerrainType terrainType in buildable.buildableTerrains) 
+                if (terrainType.ToString() == selectedTile.type.ToString())
                 {
-                    if (terrainType.ToString() == selectedTile.type.ToString()) 
-                    {
-                        BuildInfo buildInfo = Instantiate(buildInfoPrefab, buildInfoContainer.transform).GetComponent<BuildInfo>();
-                        buildInfo.metal.text = buildable.metalCost.ToString();
-                        buildInfo.oil.text = buildable.oilCost.ToString();
-                        buildInfo.wood.text = buildable.woodCost.ToString();
-                        buildInfo.fish.text = buildable.fishCost.ToString();
-                        buildInfo.icon.sprite = buildable.icon;
-                        buildInfo.buildingName.text = buildable.buildingName;
-                        buildInfo.buildable = buildable;
-                    }
+                    BuildInfo buildInfo = Instantiate(buildInfoPrefab, buildInfoContainer.transform).GetComponent<BuildInfo>();
+                    buildInfo.metal.text = buildable.metalCost.ToString();
+                    buildInfo.oil.text = buildable.oilCost.ToString();
+                    buildInfo.wood.text = buildable.woodCost.ToString();
+                    buildInfo.fish.text = buildable.fishCost.ToString();
+                    buildInfo.icon.sprite = buildable.icon;
+                    buildInfo.buffs.text = buildable.info;
+                    buildInfo.buildingName.text = buildable.buildingName;
+                    buildInfo.buildable = buildable;
                 }
             }
-            
-            prevHex = selectedTile;
-            inputField.text = selectedTile.workersOnTile.ToString();
-            /*buildableDropDown.ClearOptions();
-            foreach (Buildable buildable in buildables) 
-            {
-                foreach (Buildable.TerrainType terrain in buildable.buildableTerrains) 
-                {
-                    if (terrain.ToString() == selectedTile.type.ToString()) 
-                    {
-                        buildableDropDown.options.Add(new TMP_Dropdown.OptionData(buildable.name));
-                    }
-                }
-            }*/
         }
+        prevHex = selectedTile;
+        inputField.text = selectedTile.workersOnTile.ToString();
+        foreach (TileChanges tile in changes) 
+        {
+            if (selectedTile == tile.affectedTile) 
+            {
+                if (tile.changeType == TileChanges.ChangeType.worker)
+                {
+                    uiManager.ShowChange(tile.numberOfWorkersChanged > 0 ? tile.numberOfWorkersChanged + " workers will be assigned to this tile" : tile.numberOfWorkersChanged + " workers will be removed from this tile");
+                    break;
+                }
+                else 
+                {
+                    uiManager.ShowChange(tile.toBeBuilt.buildingName + " will be built on this tile");
+                    break;
+                }
+            }
+            uiManager.HideChanges();
+        }
+        
+
     }
     public void SelectedHexTile(HexTile hexTile) 
     {
@@ -157,23 +202,14 @@ public class GameManager : MonoBehaviour
             return; }
         selectedTile = hexTile;
 
-
-        if (currentTool == ToolType.Hammer)
-        { 
-            uiManager.ShowUI(uiManager.buildList);
-        }
-        else if (currentTool == ToolType.View)
-        {
-            uiManager.ShowUI(uiManager.viewUI);
-        }
         MoveCamToLocation(hexTile.gameObject.transform.position);
-        Vector3 canvasLocation = new Vector3(hexTile.gameObject.transform.position.x-1, 1.2f, hexTile.gameObject.transform.position.z);
+        Vector3 canvasLocation = new Vector3(hexTile.gameObject.transform.position.x, 0.3f, hexTile.gameObject.transform.position.z);
         worldspaceCanvas.transform.position = canvasLocation;
 
 
 
     }
-     public void SetTool(ToolType tool)
+    public void SetTool(ToolType tool)
     {
         currentTool = tool;
     }
@@ -196,7 +232,7 @@ public class GameManager : MonoBehaviour
         }
         return list;
     }
-    public void UpdateWorkers() 
+    public void UpdateWorkers2() 
     {
         int n;
         var isNumeric = int.TryParse(inputField.text, out n);
@@ -242,7 +278,7 @@ public class GameManager : MonoBehaviour
         changes.Add(tileChanges);
     }
 
-    public void BuildAction(Buildable  build) {
+    public void BuildAction2(Buildable  build) {
         int mCost=0;
         int wCost=0;
         int fCost=0;
@@ -256,7 +292,7 @@ public class GameManager : MonoBehaviour
         }
         if (metal>=mCost && wood>=wCost && fish>=fCost && oil>= oCost){
             
-            Build(build);
+            Build2(build);
 
             metal-=mCost;
             wood-=wCost;
@@ -264,7 +300,7 @@ public class GameManager : MonoBehaviour
             oil-= oCost;
         }
         else{
-            Debug.Log("No enough resources");
+            Debug.Log("Not enough resources");
         }
 
     }
@@ -286,64 +322,377 @@ public class GameManager : MonoBehaviour
         }
     }
 
-public void Build(Buildable build)
-{
-    if (selectedTile == null) return;
+    public void Build2(Buildable build)
+    {
+        if (selectedTile == null) return;
 
-    Buildable targetBuildable = build;
+        Buildable targetBuildable = build;
 
 
-    if (targetBuildable == null) return;
+        if (targetBuildable == null) return;
 
-    Vector3 position = selectedTile.transform.position;
-    Quaternion rotation = selectedTile.transform.rotation;
-    Transform parent = selectedTile.transform.parent;
-    hexTiles.Remove(selectedTile.transform);
-    Destroy(selectedTile.gameObject);
-    GameObject newBuilding = Instantiate(targetBuildable.buildablePrefab, position, rotation, parent);
+        Vector3 position = selectedTile.transform.position;
+        Quaternion rotation = selectedTile.transform.rotation;
+        Transform parent = selectedTile.transform.parent;
+        hexTiles.Remove(selectedTile.transform);
+        Destroy(selectedTile.gameObject);
+        GameObject newBuilding = Instantiate(targetBuildable.buildablePrefab, position, rotation, parent);
     
-    hexTiles.Add(newBuilding.transform);
+        hexTiles.Add(newBuilding.transform);
 
-    // Get the HexTile component of the new building
-    HexTile newTile = newBuilding.GetComponent<HexTile>();
-    if (newTile == null)
-    {
-        newTile = newBuilding.AddComponent<HexTile>();
-    }
-
-
-
-    switch(targetBuildable.type.ToString())
-    {
-        case "Factory":
-            newTile.type = HexTile.TerrainType.Factory;
-            break;
-        case "Dam":
-            newTile.type = HexTile.TerrainType.Dam;
-            break;
-        case "Residence":
-            newTile.type = HexTile.TerrainType.Town;
-            break;
-        case "WindTurbine":
-            newTile.type = HexTile.TerrainType.WindTurbine;
-            break;
-    }
-
-    // Adding collider from the goat
-    MeshCollider meshCollider = newBuilding.GetComponent<MeshCollider>();
-    if (meshCollider == null)
-    {
-        Transform meshChild = newBuilding.transform.GetChild(0);
-        if (meshChild != null)
+        // Get the HexTile component of the new building
+        HexTile newTile = newBuilding.GetComponent<HexTile>();
+        if (newTile == null)
         {
-            meshCollider = meshChild.GetComponent<MeshCollider>();
-            if (meshCollider == null)
+            newTile = newBuilding.AddComponent<HexTile>();
+        }
+
+        newTile.type = HexTile.TerrainType.None;
+        newTile.tileName = build.buildingName;
+        newTile.isBuilt = true;
+        // Adding collider from the goat
+        MeshCollider meshCollider = newBuilding.GetComponent<MeshCollider>();
+        if (meshCollider == null)
+        {
+            Transform meshChild = newBuilding.transform.GetChild(0);
+            if (meshChild != null)
             {
-                meshCollider = meshChild.gameObject.AddComponent<MeshCollider>();
-                meshCollider.convex = true;
+                meshCollider = meshChild.GetComponent<MeshCollider>();
+                if (meshCollider == null)
+                {
+                    meshCollider = meshChild.gameObject.AddComponent<MeshCollider>();
+                    meshCollider.convex = true;
+                }
+            }
+        }
+        selectedTile = newTile;
+    }
+
+    public void UpdateWorkers()
+    {
+        int n;
+        var isNumeric = int.TryParse(inputField.text, out n);
+        TileChanges tileChanges = ScriptableObject.CreateInstance<TileChanges>();
+        tileChanges.affectedTile = selectedTile;
+        tileChanges.changeType = TileChanges.ChangeType.worker;
+        tileChanges.numberOfWorkersChanged = n - selectedTile.workersOnTile;
+
+        TileChanges changeToBeRemoved = null;
+        foreach (TileChanges change in changes)
+        {
+            if (change.affectedTile == tileChanges.affectedTile)
+            {
+                if (change.changeType == TileChanges.ChangeType.worker)
+                {
+                    tileChanges.numberOfWorkersChanged += change.numberOfWorkersChanged;
+                }
+                else
+                {
+                    if (numberOfFreeWorkers - tileChanges.numberOfWorkersChanged >= 0)
+                    { // confirm if user has enough workers before reversing existing build change
+                        metal += change.toBeBuilt.metalCost;
+                        wood += change.toBeBuilt.woodCost;
+                        fish += change.toBeBuilt.fishCost;
+                        oil += change.toBeBuilt.oilCost;
+                        // if energy is consumed also revert it
+                    }
+                }
+                changeToBeRemoved = change;
+            }
+        }
+
+        if (numberOfFreeWorkers - tileChanges.numberOfWorkersChanged >= 0)
+        {
+            changes.Remove(changeToBeRemoved);
+            if (changes.Count < 3)
+            {
+                selectedTile.workersOnTile += tileChanges.numberOfWorkersChanged;
+                numberOfFreeWorkers -= tileChanges.numberOfWorkersChanged;
+                uiManager.ShowChange(tileChanges.numberOfWorkersChanged > 0 ? tileChanges.numberOfWorkersChanged + " workers will be assigned to this tile" : tileChanges.numberOfWorkersChanged + " workers will be removed from this tile");
+
+                if (tileChanges.numberOfWorkersChanged != 0)
+                {
+                    changes.Add(tileChanges);
+                    selectedTile.GetComponentInChildren<HighlightSystem>().changed = true;
+                    selectedTile.GetComponentInChildren<HighlightSystem>().Highlight.SetActive(true);
+                    workerRateInfo.text = selectedTile.getExtractionRate();
+                    // Highlight modified hex
+                }
+                else
+                {
+                    // Remove highlight from hex
+                }
+            }
+            else
+            {
+                Debug.Log("Out of changes for this turn");
+            }
+        }
+        else
+        {
+            Debug.Log("Need more workers");
+        }
+    }
+
+    // Button for this should be available only if selected tile is in changes.affectedTile
+    public void revertChange()
+    {
+        foreach (TileChanges change in changes)
+        {
+            if (change.affectedTile == selectedTile)
+            {
+                if (change.changeType == TileChanges.ChangeType.worker)
+                {
+                    selectedTile.workersOnTile -= change.numberOfWorkersChanged;
+                    numberOfFreeWorkers += change.numberOfWorkersChanged;
+                }
+                else
+                {
+                    metal += change.toBeBuilt.metalCost;
+                    wood += change.toBeBuilt.woodCost;
+                    fish += change.toBeBuilt.fishCost;
+                    oil += change.toBeBuilt.oilCost;
+                    // also revert energy if used to building
+                }
             }
         }
     }
-    selectedTile = newTile;
-}
+    public void BuildAction(Buildable toBeBuilt)
+    {
+        TileChanges tileChanges = ScriptableObject.CreateInstance<TileChanges>();
+        tileChanges.affectedTile = selectedTile;
+        tileChanges.changeType = TileChanges.ChangeType.build;
+        tileChanges.toBeBuilt = toBeBuilt;
+
+        int mCost = toBeBuilt.metalCost;
+        int wCost = toBeBuilt.woodCost;
+        int fCost = toBeBuilt.fishCost;
+        int oCost = toBeBuilt.oilCost;
+
+        TileChanges changeToBeRemoved = null;
+        foreach (TileChanges change in changes)
+        {
+            if (change.affectedTile == tileChanges.affectedTile)
+            {
+                if (change.changeType == tileChanges.changeType)
+                {
+                    mCost -= change.toBeBuilt.metalCost;
+                    wCost -= change.toBeBuilt.woodCost;
+                    fCost -= change.toBeBuilt.fishCost;
+                    oCost -= change.toBeBuilt.oilCost;
+                }
+                else
+                {
+                    if (metal >= mCost && wood >= wCost && fish >= fCost && oil >= oCost)
+                    { // confirm enough available resources before reverting workers change
+                        selectedTile.workersOnTile -= change.numberOfWorkersChanged;
+                        numberOfFreeWorkers += change.numberOfWorkersChanged;
+                    }
+                }
+                changeToBeRemoved = change;
+            }
+
+        }
+        uiManager.ShowChange(toBeBuilt.buildingName + " will be built on this tile");
+        if (metal >= mCost && wood >= wCost && fish >= fCost && oil >= oCost)
+        {
+            changes.Remove(changeToBeRemoved);
+
+            selectedTile.GetComponentInChildren<HighlightSystem>().Highlight.SetActive(true);
+            selectedTile.GetComponentInChildren<HighlightSystem>().Highlight.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Need more resource");
+            return;
+        }
+
+        if (changes.Count < 3)
+        {
+            if (metal >= mCost && wood >= wCost && fish >= fCost && oil >= oCost)
+            {
+                changes.Add(tileChanges);
+                selectedTile.GetComponentInChildren<HighlightSystem>().changed = true;
+                selectedTile.GetComponentInChildren<HighlightSystem>().Highlight.SetActive(true);
+                // Highlight modified hex
+
+                metal -= mCost;
+                wood -= wCost;
+                fish -= fCost;
+                oil -= oCost;
+            }
+            else
+            {
+                Debug.Log("No enough resources");
+            }
+        }
+        else
+        {
+            Debug.Log("Max Number of Changes reached!");
+            // has to revert a change 
+        }
+    }
+
+    public void Build(HexTile oldTile, Buildable targetBuildable)
+    {
+        numberOfFreeWorkers += oldTile.workersOnTile;
+        Vector3 position = oldTile.transform.position;
+        Quaternion rotation = oldTile.transform.rotation;
+        Transform parent = oldTile.transform.parent;
+
+        foreach (Transform tileNeighbours in oldTile.neighbours)
+        {
+            List<Transform> ni = tileNeighbours.gameObject.GetComponent<HexTile>().neighbours;
+            for (int i = 0; i < ni.Count; i++)
+            {
+                if (ni[i] == oldTile.transform)
+                {
+                    ni.RemoveAt(i);
+                }
+            }
+        }
+
+        hexTiles.Remove(oldTile.transform);
+        Destroy(oldTile.gameObject);
+        GameObject newBuilding = Instantiate(targetBuildable.buildablePrefab, position, rotation, parent);
+
+        hexTiles.Add(newBuilding.transform);
+
+        // Get the HexTile component of the new building
+        HexTile newTile = newBuilding.GetComponent<HexTile>();
+        if (newTile == null)
+        {
+            newTile = newBuilding.AddComponent<HexTile>();
+        }
+        
+        newTile.type = HexTile.TerrainType.None;
+
+        // Adding collider from the goat
+        MeshCollider meshCollider = newBuilding.GetComponent<MeshCollider>();
+        if (meshCollider == null)
+        {
+            Transform meshChild = newBuilding.transform.GetChild(0);
+            if (meshChild != null)
+            {
+                meshCollider = meshChild.GetComponent<MeshCollider>();
+                if (meshCollider == null)
+                {
+                    meshCollider = meshChild.gameObject.AddComponent<MeshCollider>();
+                    meshCollider.convex = true;
+                }
+            }
+        }
+        newTile.isBuilt = true;
+        newTile.buildable = targetBuildable;
+        if(targetBuildable.energyRate < 0)
+            Q.Add(newTile);
+
+        oldTile = newTile;
+    }
+
+    public void ApplyTurnChanges()
+    {
+        // TO DO:
+        // Apply all changes -- done
+        // Remove hex highlights
+        // Increase Pollution levels or decrease if thats the case -- hex tiles pollute on turn end signal -- done
+        // Consume food based on population -- leave for now (can be done here or residence tile can do it on signal) --done
+        // Add farmed resources to inventory -- leave for now -- signal sent action done in hex tile -- done
+        // Increase population based on food generated ? -- should be done centerally 
+        // Consume Energy ?
+        // ...smth else
+
+        /*
+        if (changes.Count < 3)
+        {
+            Debug.Log("Few changes left");
+            return;
+        }*/
+
+        OnTurnEnd.Invoke();
+        StartCoroutine(TimeDelay());
+        uiManager.HideChanges();
+
+    }
+    IEnumerator TimeDelay() 
+    {
+        yield return new WaitForSeconds(.5f);
+        foreach (HexTile h in Q)
+        {
+            if (energy >= -h.buildable.energyRate  && fish >= h.buildable.fishDepletionRate)
+            {
+                energy += h.buildable.energyRate;
+                if(energy < 0)
+                    energy = 0;
+                pollution += h.buildable.pollutionRate;
+                fish -= h.buildable.fishDepletionRate;
+                h.isActive = true;
+                bool addRes = true;
+                foreach (HexTile res in residences)
+                {
+                    if (res == h) { addRes = false; break; }
+                }
+                if (h.gameObject.name.Contains("Town") && addRes)
+                {
+                    residences.Add(h); continue;
+                }
+                bool addGym = true;
+                foreach (HexTile gym in gyms)
+                {
+                    if (gym == h) { addGym = false; break; }
+
+                }
+                if (h.gameObject.name.Contains("Gym") && addGym)
+                {
+                    gyms.Add(h);
+                }
+            }
+            else
+            {
+                h.isActive = false;
+                bool rmRes = false;
+                foreach (HexTile res in residences)
+                {
+                    if (res == h) { rmRes = true; break; }
+                }
+                if (h.gameObject.name.Contains("Town") && rmRes)
+                {
+                    residences.Remove(h); continue;
+                }
+
+                bool rmGym = false;
+                foreach (HexTile gym in gyms)
+                {
+                    if (gym == h) { rmGym = true; break; }
+
+                }
+                if (h.gameObject.name.Contains("Gym") && rmGym)
+                {
+                    gyms.Remove(h);
+                }
+                Debug.Log("Building Deactivated");
+            }
+
+        }
+        if (residences.Count > 0)
+            maxPopulation = 100 + populationLimitIncreasePerBuilding * residences.Count;
+        else
+            maxPopulation = 100;
+        population = Mathf.RoundToInt(Mathf.Clamp(100 + fish / 4, 0, maxPopulation));
+        populationDisplay.text = population.ToString();
+        expansionManager.expansionCheck(population);
+        if(selectedTile)
+            UpdateUI();
+
+        foreach (TileChanges change in changes)
+        {
+            if (change.changeType == TileChanges.ChangeType.build)
+            {
+                Build(change.affectedTile, change.toBeBuilt);
+            } // worker changes are already done on the spot
+        }
+
+
+        changes.Clear();
+    }
 }

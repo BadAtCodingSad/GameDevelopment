@@ -488,6 +488,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &156823853033819074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,6 +2270,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &563536671713046590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,6 +2325,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &587346753643438362
 GameObject:
   m_ObjectHideFlags: 0
@@ -3352,6 +3379,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &857940097906155548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,6 +3767,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &891196584716994687
 GameObject:
   m_ObjectHideFlags: 0
@@ -6108,6 +6153,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &1501975749266539631
 GameObject:
   m_ObjectHideFlags: 0
@@ -6619,6 +6673,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &1570740155123651329
 GameObject:
   m_ObjectHideFlags: 0
@@ -6820,6 +6883,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &1694988698275649135
 GameObject:
   m_ObjectHideFlags: 0
@@ -9695,6 +9767,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &2177749677610774801
 GameObject:
   m_ObjectHideFlags: 0
@@ -10074,6 +10155,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &2242399457173433227
 GameObject:
   m_ObjectHideFlags: 0
@@ -12824,6 +12914,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &2885942421180586401
 GameObject:
   m_ObjectHideFlags: 0
@@ -13156,6 +13255,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3045285816125354561
 GameObject:
   m_ObjectHideFlags: 0
@@ -13535,6 +13643,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3149801829752340574
 GameObject:
   m_ObjectHideFlags: 0
@@ -15292,6 +15409,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3630710271995278839
 GameObject:
   m_ObjectHideFlags: 0
@@ -16687,6 +16813,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3812905475012361754
 GameObject:
   m_ObjectHideFlags: 0
@@ -17663,6 +17798,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3991542356405173709
 GameObject:
   m_ObjectHideFlags: 0
@@ -18484,6 +18628,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &4260986641981649556
 GameObject:
   m_ObjectHideFlags: 0
@@ -19878,6 +20031,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &4500766408726360266
 GameObject:
   m_ObjectHideFlags: 0
@@ -20079,6 +20241,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &4527885931813265289
 GameObject:
   m_ObjectHideFlags: 0
@@ -20280,6 +20451,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &4644737040062577181
 GameObject:
   m_ObjectHideFlags: 0
@@ -20636,6 +20816,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &4768793234055305002
 GameObject:
   m_ObjectHideFlags: 0
@@ -21325,6 +21514,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &4881601177191080644
 GameObject:
   m_ObjectHideFlags: 0
@@ -24687,6 +24885,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &5917087286074110948
 GameObject:
   m_ObjectHideFlags: 0
@@ -25399,6 +25606,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &6029971889880135397
 GameObject:
   m_ObjectHideFlags: 0
@@ -26552,6 +26768,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &6164957675755073694
 GameObject:
   m_ObjectHideFlags: 0
@@ -26954,6 +27179,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &6214202471985481095
 GameObject:
   m_ObjectHideFlags: 0
@@ -27620,6 +27854,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &6249253658236306835
 GameObject:
   m_ObjectHideFlags: 0
@@ -28681,6 +28924,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &6528483272160591501
 GameObject:
   m_ObjectHideFlags: 0
@@ -28727,6 +28979,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &6555633511042387584
 GameObject:
   m_ObjectHideFlags: 0
@@ -30436,6 +30697,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &6874534813286881930
 GameObject:
   m_ObjectHideFlags: 0
@@ -33759,6 +34029,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &7466527521345537363
 GameObject:
   m_ObjectHideFlags: 0
@@ -35579,6 +35858,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &7968504105356599146
 GameObject:
   m_ObjectHideFlags: 0
@@ -40257,6 +40545,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &8949767954163283282
 GameObject:
   m_ObjectHideFlags: 0
@@ -41147,6 +41444,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &9067657736684732151
 GameObject:
   m_ObjectHideFlags: 0
@@ -41526,6 +41832,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &9122095408157472534
 GameObject:
   m_ObjectHideFlags: 0
@@ -42037,3 +42352,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0

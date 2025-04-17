@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -7,13 +8,15 @@ public class UIManager : MonoBehaviour
     public GameObject buildList;
     public GameObject viewUI;
     public GameObject workersUI;
+    public GameObject changesView;
+    public TextMeshProUGUI changesText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         buildList.SetActive(false);
-        viewUI.SetActive(false);
+        viewUI.SetActive(true);
         workersUI.SetActive(false);
-        
+        changesView.SetActive(false);
 
     }
 
@@ -26,6 +29,14 @@ public class UIManager : MonoBehaviour
         uiElement.SetActive(true);
         
     }
-
-    
+    public void ShowChange(string change) 
+    {
+        changesText.text = change;
+        changesView.SetActive(true);
+    }
+    public void HideChanges() 
+    {
+        changesView.SetActive(false);
+    }
 }
+

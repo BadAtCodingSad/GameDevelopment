@@ -22,4 +22,6 @@ public class TerrainResource : ScriptableObject
     public float woodRate;
     public float oilRate;
     public float fishRate;
+
+    public float pollutionRate;
 }
