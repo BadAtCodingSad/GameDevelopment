@@ -5,6 +5,7 @@ public class HighlightSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject Highlight;
+    public bool changed;
     void Start()
     {
         Highlight.SetActive(false);
@@ -13,7 +14,7 @@ public class HighlightSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnMouseEnter()
@@ -23,6 +24,7 @@ public class HighlightSystem : MonoBehaviour
 
     private void OnMouseExit()
     {
-        Highlight.SetActive(false);
+        if(!changed)
+            Highlight.SetActive(false);
     }
 }

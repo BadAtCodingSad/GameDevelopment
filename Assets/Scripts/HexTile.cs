@@ -8,13 +8,17 @@ public class HexTile : MonoBehaviour
     public TerrainResource terrainResource;
     private GameManager gameManager;
 
+    public Buildable buildable;
+    public bool isActive = true;
+
     public int metal;
     public int wood;
     public int oil;
     public int fish;
 
     public int workersOnTile;
-
+    public string tileName;
+    public bool isBuilt = false;
     public enum TerrainType
     {
         Ocean,
@@ -23,9 +27,7 @@ public class HexTile : MonoBehaviour
         River,
         Mountain,
         Town,
-        Factory,
-        Dam,
-        WindTurbine
+        None
     }
     public TerrainType type;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,17 +35,35 @@ public class HexTile : MonoBehaviour
     {
         while (GameManager.instance == null) { }
         if (gameObject.name.Contains("Hills"))
+        {
             type = TerrainType.Quarry;
+            tileName = "Hills";
+        }
         else if (gameObject.name.Contains("Forest"))
+        {
             type = TerrainType.Forest;
+            tileName = "Forest";
+        }
         else if (gameObject.name.Contains("Ocean"))
+        {
             type = TerrainType.Ocean;
+            tileName = "Ocean";
+        }
         else if (gameObject.name.Contains("River"))
+        {
             type = TerrainType.River;
+            tileName = "River";
+        }
         else if (gameObject.name.Contains("Mountain"))
+        {
             type = TerrainType.Mountain;
+            tileName = "Mountain";
+        }
         else if (gameObject.name.Contains("Town"))
+        {
             type = TerrainType.Town;
+            tileName = "Town";
+        }
         gameManager = GameManager.instance;
         gameManager.hexTiles.Add(transform);
     }
@@ -82,9 +102,62 @@ public class HexTile : MonoBehaviour
     }
     public string getExtractionRate() 
     {
-        return "+ " + Mathf.RoundToInt(terrainResource.metalRate * workersOnTile) + " metal/turn" + "+ " 
-            + Mathf.RoundToInt(terrainResource.oilRate * workersOnTile) + " oil/turn"
-            + "+ " + Mathf.RoundToInt(terrainResource.fishRate * workersOnTile) + " fish/turn"
-            + "+ " + Mathf.RoundToInt(terrainResource.woodRate * workersOnTile) + " wood/turn"; 
+        if (isBuilt)
+            return "";
+        return "+ " + Mathf.RoundToInt(terrainResource.metalRate * workersOnTile + terrainResource.metalRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count) + " metal/turn" + "+ " 
+            + Mathf.RoundToInt(terrainResource.oilRate * workersOnTile + terrainResource.oilRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count) + " oil/turn"
+            + "+ " + Mathf.RoundToInt(terrainResource.fishRate * workersOnTile + terrainResource.fishRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count) + " fish/turn"
+            + "+ " + Mathf.RoundToInt(terrainResource.woodRate * workersOnTile + terrainResource.woodRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count) + " wood/turn"; 
     }
+
+    // Turn Mec
+    private void OnEnable()
+    {
+        //gameManager.OnTurnEnd += TurnHandler;
+        GameManager.OnTurnEnd += TurnHandler;
+    }
+
+    private void OnDisable()
+    {
+        //gameManager.OnTurnEnd -= TurnHandler;
+        GameManager.OnTurnEnd -= TurnHandler;
+    }
+
+    private void TurnHandler()
+    {
+        // Increase Pollution levels or decrease if thats the case -- hex tiles pollute on turn end signal -- dummy done
+        // Consume food based on population -- leave for now (can be done here or residence tile can do it on signal) - dummy done
+        // Add farmed resources to inventory -- leave for now -- signal sent action done in hex tile -- done
+
+
+        if (workersOnTile > 0)
+        {
+            gameManager.fish += Mathf.Clamp(Mathf.RoundToInt(terrainResource.fishRate * workersOnTile + terrainResource.fishRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,fish);
+            gameManager.metal += Mathf.Clamp(Mathf.RoundToInt(terrainResource.metalRate * workersOnTile + terrainResource.metalRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,metal);
+            gameManager.wood += Mathf.Clamp(Mathf.RoundToInt(terrainResource.woodRate * workersOnTile + terrainResource.woodRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,wood);
+            gameManager.oil += Mathf.Clamp(Mathf.RoundToInt(terrainResource.oilRate * workersOnTile + terrainResource.oilRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,oil);
+
+            // dedcut from tile resource
+            fish -= Mathf.Clamp(Mathf.RoundToInt(terrainResource.fishRate * workersOnTile + terrainResource.fishRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,fish);
+            metal -= Mathf.Clamp(Mathf.RoundToInt(terrainResource.metalRate * workersOnTile + terrainResource.metalRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,metal);
+            wood -= Mathf.Clamp(Mathf.RoundToInt(terrainResource.woodRate * workersOnTile + terrainResource.woodRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,wood);
+            oil -= Mathf.Clamp(Mathf.RoundToInt(terrainResource.oilRate * workersOnTile + terrainResource.oilRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,oil);
+            gameManager.pollution += workersOnTile * terrainResource.pollutionRate;
+            HexTile hexTile = null;
+            foreach (Transform transform in neighbours) 
+            {
+                hexTile = transform.gameObject.GetComponent<HexTile>();
+                hexTile.fish -= Mathf.RoundToInt(Mathf.Clamp(workersOnTile * terrainResource.pollutionRate, 0, hexTile.fish));
+;               hexTile.wood -= Mathf.RoundToInt(Mathf.Clamp(workersOnTile * terrainResource.pollutionRate, 0, hexTile.wood));
+;           }
+        }
+        if (isBuilt)
+        {
+            if (buildable.energyRate > 0)
+            {
+                gameManager.pollution += buildable.pollutionRate;
+                gameManager.energy += buildable.energyRate;
+            }
+        }
+    } 
 }

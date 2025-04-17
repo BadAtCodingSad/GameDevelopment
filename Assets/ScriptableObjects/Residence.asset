@@ -19,5 +19,10 @@ MonoBehaviour:
   oilCost: 25
   woodCost: 0
   fishCost: 0
+  energyCost: 0
   icon: {fileID: 0}
   type: 2
+  info: Houses 100 people
+  energyRate: -30
+  pollutionRate: 100
+  fishDepletionRate: 5

@@ -26,7 +26,7 @@ public class Population : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F)){
-            feedpopulation();
+            //feedpopulation();
             
         }
         
@@ -58,7 +58,7 @@ public class Population : MonoBehaviour
         }
         
     }
-
+    /*
     public void feedpopulation()//feed population at anytime of the turn
     {
         if (InventoryManager.Instance.getFish() >= populationCount && fedPopulationCount!=populationCount)
@@ -93,6 +93,7 @@ public class Population : MonoBehaviour
 
         
     }
+    */
     public void fedSetZero(){
         //needs to be called after each turn
         fedPopulationCount=0;

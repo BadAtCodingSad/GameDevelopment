@@ -21,3 +21,4 @@ MonoBehaviour:
   woodRate: 0
   oilRate: 0
   fishRate: 0.5
+  pollutionRate: 1

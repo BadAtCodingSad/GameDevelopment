@@ -26,7 +26,7 @@ public class BuildInfo : MonoBehaviour
     }
     public void Build() 
     {
-        GameManager.instance.BuildUpdate(buildable);
-        //GameManager.instance.BuildAction(buildable);
+        //GameManager.instance.BuildUpdate(buildable);
+        GameManager.instance.BuildAction(buildable);
     }
 }

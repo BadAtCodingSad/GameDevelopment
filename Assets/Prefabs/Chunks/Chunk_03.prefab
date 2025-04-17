@@ -2474,6 +2474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1405241336510235854}
+  - component: {fileID: 5149648850719090251}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -2497,6 +2498,28 @@ Transform:
   - {fileID: 8233954925898730963}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5149648850719090251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614753138808809824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &623032229566150426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3631,6 +3654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2895720887556547355}
+  - component: {fileID: 4123223503387845455}
   m_Layer: 0
   m_Name: Hills(Clone)
   m_TagString: Untagged
@@ -3654,6 +3678,28 @@ Transform:
   - {fileID: 4546600362350402675}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4123223503387845455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727724029759162693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: cc75ecaf96c812249be992ed770eb43b, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &729920010616074141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3927,6 +3973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1913910275569475338}
+  - component: {fileID: 4332908478023587241}
   m_Layer: 0
   m_Name: Forest(Clone)
   m_TagString: Untagged
@@ -3950,6 +3997,28 @@ Transform:
   - {fileID: 1553228307173605598}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4332908478023587241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813640062635951521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &841414365444156591
 GameObject:
   m_ObjectHideFlags: 0
@@ -4309,6 +4378,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2982613147769678473}
+  - component: {fileID: 1220691277699157622}
   m_Layer: 0
   m_Name: Hills(Clone)
   m_TagString: Untagged
@@ -4332,6 +4402,28 @@ Transform:
   - {fileID: 7875386347758058986}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220691277699157622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915064036337604758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: cc75ecaf96c812249be992ed770eb43b, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &918862211162013192
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,6 +5357,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2956403028172561648}
+  - component: {fileID: 5555392106681153716}
   m_Layer: 0
   m_Name: Hills(Clone)
   m_TagString: Untagged
@@ -5288,6 +5381,28 @@ Transform:
   - {fileID: 8786066321735244245}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5555392106681153716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154618969368116098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: cc75ecaf96c812249be992ed770eb43b, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &1204058269439258309
 GameObject:
   m_ObjectHideFlags: 0
@@ -6083,6 +6198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6597087912102290929}
+  - component: {fileID: 8446719743155910818}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -6106,6 +6222,28 @@ Transform:
   - {fileID: 3972206735371090178}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8446719743155910818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370371002028171284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &1400611483081981195
 GameObject:
   m_ObjectHideFlags: 0
@@ -7056,6 +7194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8517028044327354166}
+  - component: {fileID: 2460858505725753049}
   m_Layer: 0
   m_Name: Hills(Clone)
   m_TagString: Untagged
@@ -7079,6 +7218,28 @@ Transform:
   - {fileID: 126760089777068768}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2460858505725753049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725296855537334424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: cc75ecaf96c812249be992ed770eb43b, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &1729863889354805183
 GameObject:
   m_ObjectHideFlags: 0
@@ -7266,6 +7427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6266715238350718862}
+  - component: {fileID: 6894714084271320625}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -7289,6 +7451,28 @@ Transform:
   - {fileID: 6213579497237724319}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6894714084271320625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806116777170758699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &1841166073957191832
 GameObject:
   m_ObjectHideFlags: 0
@@ -8383,6 +8567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5017129521812440474}
+  - component: {fileID: 3027703801043408357}
   m_Layer: 0
   m_Name: Mountains(Clone)
   m_TagString: Untagged
@@ -8406,6 +8591,28 @@ Transform:
   - {fileID: 2543766089636510049}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3027703801043408357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036954594624105661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 9898074ea96d1a640af96b45ba1a6396, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &2066646784111933546
 GameObject:
   m_ObjectHideFlags: 0
@@ -11711,6 +11918,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2533757387947151479}
+  - component: {fileID: 3474510968762941019}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -11734,6 +11942,28 @@ Transform:
   - {fileID: 4079066235581489517}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3474510968762941019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2817622890686264890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &2818364469817694762
 GameObject:
   m_ObjectHideFlags: 0
@@ -12076,6 +12306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6346240281478686725}
+  - component: {fileID: 2298793200182501268}
   m_Layer: 0
   m_Name: Mountains(Clone)
   m_TagString: Untagged
@@ -12099,6 +12330,28 @@ Transform:
   - {fileID: 3101859319205350969}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2298793200182501268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871376865588170774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 9898074ea96d1a640af96b45ba1a6396, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &2919365099926272751
 GameObject:
   m_ObjectHideFlags: 0
@@ -12441,6 +12694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5577516413337949295}
+  - component: {fileID: 5834936842726856220}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -12464,6 +12718,28 @@ Transform:
   - {fileID: 7495498555576427898}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5834936842726856220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956850981690021933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &2962726749428703525
 GameObject:
   m_ObjectHideFlags: 0
@@ -12961,6 +13237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1297041990820224586}
+  - component: {fileID: 7464190519842667064}
   m_Layer: 0
   m_Name: Hills(Clone)
   m_TagString: Untagged
@@ -12984,6 +13261,28 @@ Transform:
   - {fileID: 5478468293631705767}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7464190519842667064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3085681480432114019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: cc75ecaf96c812249be992ed770eb43b, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3110926882386585521
 GameObject:
   m_ObjectHideFlags: 0
@@ -13659,6 +13958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2772713166183882404}
+  - component: {fileID: 1782788773543934811}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -13682,6 +13982,28 @@ Transform:
   - {fileID: 3722136178003427980}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1782788773543934811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378066903248676274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3387194165758900670
 GameObject:
   m_ObjectHideFlags: 0
@@ -14116,6 +14438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5033703650651026215}
+  - component: {fileID: 3007969480272500319}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -14139,6 +14462,28 @@ Transform:
   - {fileID: 5132244947832167261}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3007969480272500319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3464116618282243758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3491612806952804461
 GameObject:
   m_ObjectHideFlags: 0
@@ -14825,6 +15170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5843397287168702529}
+  - component: {fileID: 6412252326831663196}
   m_Layer: 0
   m_Name: Forest(Clone)
   m_TagString: Untagged
@@ -14848,6 +15194,28 @@ Transform:
   - {fileID: 4587516477042802602}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6412252326831663196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694785150266334013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3716493320251873630
 GameObject:
   m_ObjectHideFlags: 0
@@ -15012,6 +15380,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5353501584792436603}
+  - component: {fileID: 3821357278081627807}
   m_Layer: 0
   m_Name: Hills(Clone)
   m_TagString: Untagged
@@ -15035,6 +15404,28 @@ Transform:
   - {fileID: 7626688062242978500}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3821357278081627807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3748053741624923303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: cc75ecaf96c812249be992ed770eb43b, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3754597697355411103
 GameObject:
   m_ObjectHideFlags: 0
@@ -15044,6 +15435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3965418181273266941}
+  - component: {fileID: 6784603445960557375}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -15067,6 +15459,28 @@ Transform:
   - {fileID: 2224956451825491961}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6784603445960557375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3754597697355411103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3764902929427084330
 GameObject:
   m_ObjectHideFlags: 0
@@ -15386,6 +15800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6386058556789756053}
+  - component: {fileID: 2676231700577377763}
   m_Layer: 0
   m_Name: Forest(Clone)
   m_TagString: Untagged
@@ -15409,6 +15824,28 @@ Transform:
   - {fileID: 6948526786690309228}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2676231700577377763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3776575798071966724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3781283367178787131
 GameObject:
   m_ObjectHideFlags: 0
@@ -16061,6 +16498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1307159615771180296}
+  - component: {fileID: 2206174592364677588}
   m_Layer: 0
   m_Name: Forest(Clone)
   m_TagString: Untagged
@@ -16084,6 +16522,28 @@ Transform:
   - {fileID: 2321578221681537188}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2206174592364677588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3903984787019291754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &3913515935413204369
 GameObject:
   m_ObjectHideFlags: 0
@@ -16357,6 +16817,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5019957265760709792}
+  - component: {fileID: 1127615496717339508}
   m_Layer: 0
   m_Name: Mountains(Clone)
   m_TagString: Untagged
@@ -16380,6 +16841,28 @@ Transform:
   - {fileID: 2279684829357463038}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1127615496717339508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4022946341637945839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 9898074ea96d1a640af96b45ba1a6396, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &4096532692708116118
 GameObject:
   m_ObjectHideFlags: 0
@@ -18174,6 +18657,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2897748095385396750}
+  - component: {fileID: 3293952690424630079}
   m_Layer: 0
   m_Name: Forest(Clone)
   m_TagString: Untagged
@@ -18197,6 +18681,28 @@ Transform:
   - {fileID: 7228220651475596403}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3293952690424630079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360921707570569633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &4367758847453930221
 GameObject:
   m_ObjectHideFlags: 0
@@ -19377,6 +19883,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1122869057003573195}
+  - component: {fileID: 277784100057663893}
   m_Layer: 0
   m_Name: Mountains(Clone)
   m_TagString: Untagged
@@ -19400,6 +19907,28 @@ Transform:
   - {fileID: 186552239703770184}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &277784100057663893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4823538160260995148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 9898074ea96d1a640af96b45ba1a6396, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &4866087226845008220
 GameObject:
   m_ObjectHideFlags: 0
@@ -23502,6 +24031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1316693087623576314}
+  - component: {fileID: 7742684315622956362}
   m_Layer: 0
   m_Name: Mountains(Clone)
   m_TagString: Untagged
@@ -23525,6 +24055,28 @@ Transform:
   - {fileID: 4475027336894842036}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7742684315622956362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404307642825523281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 9898074ea96d1a640af96b45ba1a6396, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &5405586730958454628
 GameObject:
   m_ObjectHideFlags: 0
@@ -24193,6 +24745,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7905353689221538597}
+  - component: {fileID: 8245683607157143362}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -24216,6 +24769,28 @@ Transform:
   - {fileID: 881619852459145404}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8245683607157143362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541243913137821078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &5549136796566936487
 GameObject:
   m_ObjectHideFlags: 0
@@ -25510,6 +26085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4486910016334734581}
+  - component: {fileID: 1650785258490452955}
   m_Layer: 0
   m_Name: Mountains(Clone)
   m_TagString: Untagged
@@ -25533,6 +26109,28 @@ Transform:
   - {fileID: 6310012953682758866}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650785258490452955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5892184852519908795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 9898074ea96d1a640af96b45ba1a6396, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &5920113232760121898
 GameObject:
   m_ObjectHideFlags: 0
@@ -27493,6 +28091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6018365873055054812}
+  - component: {fileID: 4384242638470218109}
   m_Layer: 0
   m_Name: Forest(Clone)
   m_TagString: Untagged
@@ -27516,6 +28115,28 @@ Transform:
   - {fileID: 5697478790612179363}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4384242638470218109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6376918602003023842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &6407086671580506061
 GameObject:
   m_ObjectHideFlags: 0
@@ -30931,6 +31552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3621976490034897871}
+  - component: {fileID: 8733196795329962069}
   m_Layer: 0
   m_Name: Hills(Clone)
   m_TagString: Untagged
@@ -30954,6 +31576,28 @@ Transform:
   - {fileID: 693786117125332716}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8733196795329962069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6979988093163520623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: cc75ecaf96c812249be992ed770eb43b, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &7063788765454419981
 GameObject:
   m_ObjectHideFlags: 0
@@ -33133,6 +33777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4196095462742951751}
+  - component: {fileID: 6211906669529181015}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -33156,6 +33801,28 @@ Transform:
   - {fileID: 2528719937569926264}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6211906669529181015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7418299453130759085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &7429790524361311721
 GameObject:
   m_ObjectHideFlags: 0
@@ -33274,6 +33941,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 640775029948798641}
+  - component: {fileID: 5703909370100395704}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -33297,6 +33965,28 @@ Transform:
   - {fileID: 8312373252102068202}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5703909370100395704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7437089913690360672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &7447738474108079968
 GameObject:
   m_ObjectHideFlags: 0
@@ -34341,6 +35031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8820742023270549201}
+  - component: {fileID: 8823037775762250342}
   m_Layer: 0
   m_Name: Hills(Clone)
   m_TagString: Untagged
@@ -34364,6 +35055,28 @@ Transform:
   - {fileID: 3772461762372465128}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8823037775762250342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7684516671888600887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: cc75ecaf96c812249be992ed770eb43b, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &7692353651347093190
 GameObject:
   m_ObjectHideFlags: 0
@@ -36026,6 +36739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2134572787133563604}
+  - component: {fileID: 6693833596475981184}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -36049,6 +36763,28 @@ Transform:
   - {fileID: 5885966210679178902}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6693833596475981184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030609819262241494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &8095268041499052270
 GameObject:
   m_ObjectHideFlags: 0
@@ -36609,6 +37345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3550948816116730643}
+  - component: {fileID: 7137443859117616308}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -36632,6 +37369,28 @@ Transform:
   - {fileID: 5550111502189223009}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7137443859117616308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8170662966758740122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &8177234814999354700
 GameObject:
   m_ObjectHideFlags: 0
@@ -38745,6 +39504,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2135775154855650900}
+  - component: {fileID: 3724719165591260435}
   m_Layer: 0
   m_Name: River(Clone)
   m_TagString: Untagged
@@ -38768,6 +39528,28 @@ Transform:
   - {fileID: 732743744837343642}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3724719165591260435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8869830189384374458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: 3cc8a9b02c7776542a0d442e242802ca, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &8873396933162276820
 GameObject:
   m_ObjectHideFlags: 0
@@ -39041,6 +39823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325834229288316215}
+  - component: {fileID: 7561392165405010775}
   m_Layer: 0
   m_Name: Forest(Clone)
   m_TagString: Untagged
@@ -39064,6 +39847,28 @@ Transform:
   - {fileID: 8466403899243306992}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7561392165405010775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927491726398299310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &9070799863364871255
 GameObject:
   m_ObjectHideFlags: 0
@@ -39314,6 +40119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1834707079030292734}
+  - component: {fileID: 6457198172545206689}
   m_Layer: 0
   m_Name: Forest(Clone)
   m_TagString: Untagged
@@ -39337,6 +40143,28 @@ Transform:
   - {fileID: 3063874901903035747}
   m_Father: {fileID: 6952681367326965887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6457198172545206689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101881689410201121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125f3317474abe34e92c62d8acc8785a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  neighbours: []
+  terrainResource: {fileID: 11400000, guid: f971d9ba75675ec48bf1db1ddb2b483d, type: 2}
+  metal: 0
+  wood: 0
+  oil: 0
+  fish: 0
+  workersOnTile: 0
+  tileName: 
+  isBuilt: 0
+  type: 0
 --- !u!1 &9117414313381128118
 GameObject:
   m_ObjectHideFlags: 0
