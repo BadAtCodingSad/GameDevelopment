@@ -74,12 +74,17 @@ public class HexTile : MonoBehaviour
             gameManager.townTile = this;
         transform.GetChild(0).gameObject.AddComponent<HighlightSystem>();
         GameObject highlight = Instantiate(gameManager.Highlight);
+        GameObject changehighlight = Instantiate(gameManager.ChangeHighlight);
         highlight.transform.parent = transform;
+        changehighlight.transform.parent = transform;
         Vector3 yaseen = new Vector3();
         yaseen.y = 0.12f;
         highlight.transform.localPosition = yaseen;
+        changehighlight .transform.localPosition = yaseen;
         highlight.transform.localRotation = Quaternion.identity;
+        changehighlight.transform.localRotation = Quaternion.identity;
         transform.GetChild(0).gameObject.GetComponent<HighlightSystem>().Highlight = highlight;
+        transform.GetChild(0).gameObject.GetComponent<HighlightSystem>().ChangeHighlight = changehighlight;
 
 
         neighbours = gameManager.getNeighbours(transform);
@@ -115,6 +120,7 @@ public class HexTile : MonoBehaviour
     {
         //gameManager.OnTurnEnd += TurnHandler;
         GameManager.OnTurnEnd += TurnHandler;
+
     }
 
     private void OnDisable()
@@ -160,4 +166,5 @@ public class HexTile : MonoBehaviour
             }
         }
     } 
+
 }

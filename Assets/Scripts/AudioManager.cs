@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip background;
     public AudioClip hover;
     public AudioClip pressed;
+    public AudioClip tick;
 
     private void Start()
     {
@@ -16,14 +19,17 @@ public class AudioManager : MonoBehaviour
         musicScore.Play();
     }
 
-    public void PlaySFX(AudioClip clip) 
+    public void PlayHover() 
     {
-        SFXSource.PlayOneShot(clip);
+        SFXSource.PlayOneShot(hover);
     }
-
-
-
-
-
+    public void PlayPress()
+    {
+        SFXSource.PlayOneShot(pressed);
+    }
+    public void PlayClock()
+    {
+        SFXSource.PlayOneShot(tick);
+    }
 
 }

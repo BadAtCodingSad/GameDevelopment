@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public List<TerrainResource> terrainResources = new List<TerrainResource>();
 
     public GameObject Highlight;
+    public GameObject ChangeHighlight;
 
     //UI
     [Header("UI")]
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
 
     // Turn Mec
     public static event Action OnTurnEnd;
+
 
     public List<HexTile> Q = new List<HexTile>();
     #region Singleton
@@ -413,8 +415,7 @@ public class GameManager : MonoBehaviour
                 if (tileChanges.numberOfWorkersChanged != 0)
                 {
                     changes.Add(tileChanges);
-                    selectedTile.GetComponentInChildren<HighlightSystem>().changed = true;
-                    selectedTile.GetComponentInChildren<HighlightSystem>().Highlight.SetActive(true);
+                    selectedTile.GetComponentInChildren<HighlightSystem>().ChangeHighlight.SetActive(true);
                     workerRateInfo.text = selectedTile.getExtractionRate();
                     // Highlight modified hex
                 }
@@ -498,8 +499,7 @@ public class GameManager : MonoBehaviour
         {
             changes.Remove(changeToBeRemoved);
 
-            selectedTile.GetComponentInChildren<HighlightSystem>().Highlight.SetActive(true);
-            selectedTile.GetComponentInChildren<HighlightSystem>().Highlight.SetActive(true);
+            selectedTile.GetComponentInChildren<HighlightSystem>().ChangeHighlight.SetActive(true);
         }
         else
         {
@@ -512,8 +512,7 @@ public class GameManager : MonoBehaviour
             if (metal >= mCost && wood >= wCost && fish >= fCost && oil >= oCost)
             {
                 changes.Add(tileChanges);
-                selectedTile.GetComponentInChildren<HighlightSystem>().changed = true;
-                selectedTile.GetComponentInChildren<HighlightSystem>().Highlight.SetActive(true);
+                selectedTile.GetComponentInChildren<HighlightSystem>().ChangeHighlight.SetActive(true);
                 // Highlight modified hex
 
                 metal -= mCost;
@@ -608,12 +607,16 @@ public class GameManager : MonoBehaviour
             Debug.Log("Few changes left");
             return;
         }*/
-
         OnTurnEnd.Invoke();
         StartCoroutine(TimeDelay());
         uiManager.HideChanges();
 
     }
+
+
+
+
+
     IEnumerator TimeDelay() 
     {
         yield return new WaitForSeconds(.5f);
@@ -690,6 +693,7 @@ public class GameManager : MonoBehaviour
             {
                 Build(change.affectedTile, change.toBeBuilt);
             } // worker changes are already done on the spot
+            change.affectedTile.GetComponentInChildren<HighlightSystem>().ChangeHighlight.SetActive(false);
         }
 
 
