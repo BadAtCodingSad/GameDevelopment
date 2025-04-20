@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MountainResource
   m_EditorClassIdentifier: 
   type: 4
-  metal: {x: 900, y: 1000}
-  wood: {x: 3, y: 5}
+  metal: {x: 50, y: 100}
+  wood: {x: 0, y: 0}
   oil: {x: 0, y: 0}
   fish: {x: 0, y: 0}
-  metalRate: 0
+  metalRate: 3
   woodRate: 0
   oilRate: 0
   fishRate: 0
-  pollutionRate: 1
+  pollutionRate: 4

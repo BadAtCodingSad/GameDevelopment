@@ -5939,7 +5939,7 @@ RectTransform:
   m_GameObject: {fileID: 1169948016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1.4525, y: 1.4525, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2092424795}
@@ -5947,7 +5947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -80}
+  m_AnchoredPosition: {x: 328, y: -104}
   m_SizeDelta: {x: 368.5851, y: 110.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1169948018
@@ -6990,8 +6990,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1420086665}
   m_HandleRect: {fileID: 1420086664}
   m_Direction: 2
-  m_Value: 1.1803279
-  m_Size: 0.99989957
+  m_Value: 1.0909091
+  m_Size: 0.99995697
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8724,7 +8724,7 @@ MonoBehaviour:
   maxPollution: 10000
   pollution: 9
   maxPopulation: 100
-  population: 100
+  population: 5
   energy: 60
   numberOfFreeWorkers: 10000
   numberofActions: 0

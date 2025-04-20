@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Residence
   m_EditorClassIdentifier: 
   buildingName: Residence
-  buildableTerrains: 0200000004000000
+  buildableTerrains: 020000000400000001000000
   buildablePrefab: {fileID: 4562932375561487484, guid: e503e64695f63bb448578d912364e054, type: 3}
-  metalCost: 20
+  metalCost: 70
   oilCost: 25
-  woodCost: 0
+  woodCost: 125
   fishCost: 0
   energyCost: 0
   icon: {fileID: 0}
   type: 2
   info: Houses 100 people
   energyRate: -30
-  pollutionRate: 100
+  pollutionRate: 0
   fishDepletionRate: 5

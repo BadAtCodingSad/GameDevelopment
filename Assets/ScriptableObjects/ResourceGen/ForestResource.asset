@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   metal: {x: 0, y: 0}
-  wood: {x: 100, y: 200}
+  wood: {x: 75, y: 150}
   oil: {x: 0, y: 0}
   fish: {x: 0, y: 0}
   metalRate: 0
-  woodRate: 0
+  woodRate: 5
   oilRate: 0
   fishRate: 0
-  pollutionRate: 1
+  pollutionRate: 2

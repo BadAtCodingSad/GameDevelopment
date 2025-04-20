@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: RiverResource
   m_EditorClassIdentifier: 
   type: 3
-  metal: {x: 10, y: 10}
-  wood: {x: 10, y: 10}
-  oil: {x: 10, y: 10}
-  fish: {x: 10, y: 1000}
+  metal: {x: 0, y: 0}
+  wood: {x: 0, y: 0}
+  oil: {x: 1, y: 10}
+  fish: {x: 100, y: 200}
   metalRate: 0
   woodRate: 0
-  oilRate: 0
-  fishRate: 0.5
+  oilRate: 0.5
+  fishRate: 7
   pollutionRate: 1

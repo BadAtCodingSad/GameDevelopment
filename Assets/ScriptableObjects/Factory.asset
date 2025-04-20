@@ -15,14 +15,14 @@ MonoBehaviour:
   buildingName: Power Plant
   buildableTerrains: 0400000002000000
   buildablePrefab: {fileID: 7103697266255479796, guid: e3997679fbf585b40a454684ecb2f437, type: 3}
-  metalCost: 0
-  oilCost: 0
-  woodCost: 0
+  metalCost: 50
+  oilCost: 20
+  woodCost: 75
   fishCost: 0
-  energyCost: 0
+  energyCost: 75
   icon: {fileID: 0}
   type: 0
-  info: Produces 100 energy per turn
-  energyRate: 100
+  info: 'Produces 60 energy per turn '
+  energyRate: 60
   pollutionRate: 100
   fishDepletionRate: 0
