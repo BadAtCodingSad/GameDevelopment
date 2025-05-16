@@ -12,6 +12,7 @@ public class BuildInfo : MonoBehaviour
     public TextMeshProUGUI buildingName;
     public Image icon;
     public Buildable buildable;
+    public static GameManager instance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +28,12 @@ public class BuildInfo : MonoBehaviour
     public void Build() 
     {
         //GameManager.instance.BuildUpdate(buildable);
+
+       
+
+    
+
+        
         GameManager.instance.BuildAction(buildable);
     }
 }

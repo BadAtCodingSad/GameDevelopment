@@ -80,6 +80,9 @@ public class GameManager : MonoBehaviour
     public List<Buildable> buildables = new List<Buildable>(); 
     public ToolType currentTool = ToolType.View; 
     public UIManager uiManager;
+    public int noTowns=0;
+    public int noSBuilding=0;
+    public int objectivesDone=0;
 
 
     Vector3 camBasePos;
@@ -691,6 +694,14 @@ public class GameManager : MonoBehaviour
         {
             if (change.changeType == TileChanges.ChangeType.build)
             {
+                 if (change.toBeBuilt.buildingName == "Residence")
+                    {
+                        noTowns += 1;
+                    }
+                    else if (change.toBeBuilt.buildingName == "Dam" || change.toBeBuilt.buildingName == "Wind Turbine")
+                    {
+                        noSBuilding += 1;
+                    }
                 Build(change.affectedTile, change.toBeBuilt);
             } // worker changes are already done on the spot
             change.affectedTile.GetComponentInChildren<HighlightSystem>().ChangeHighlight.SetActive(false);

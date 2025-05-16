@@ -11,6 +11,10 @@ public class UIManager : MonoBehaviour
     public GameObject changesView;
     public TextMeshProUGUI changesText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+   
+    void Update(){
+
+    }
     void Start()
     {
         buildList.SetActive(false);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a7f6ea34b41d45b8f56b5016be799, type: 3}
   m_Name: Factory
   m_EditorClassIdentifier: 
-  buildingName: Power Plant
+  buildingName: Factory
   buildableTerrains: 0400000002000000
   buildablePrefab: {fileID: 7103697266255479796, guid: e3997679fbf585b40a454684ecb2f437, type: 3}
   metalCost: 50
