@@ -3,12 +3,18 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-public class ObjectivesManager : MonoBehaviour
+public class ObjectiveManager : MonoBehaviour
 {
+     public static ObjectiveManager instance;
+    
+    private void Awake() {
+        instance = this;}
     public Image[] checkmarks; 
+    public Button[] objectiveButtons; 
     public TextMeshProUGUI[] descriptions; 
     public int TownsObj=3;
     public int SustainableObj=15;
+    public int PopulationObj=300;
 
     private bool[] completed = new bool[4];
     bool active= false;
@@ -22,6 +28,10 @@ public class ObjectivesManager : MonoBehaviour
         
         foreach (Image check in checkmarks){
             check.enabled=false;
+        }
+        foreach (Button b in objectiveButtons){
+            b.interactable = false;
+            b.gameObject.SetActive(false);
         }
  
     }
@@ -38,6 +48,8 @@ public class ObjectivesManager : MonoBehaviour
         {
             completed[0] = true;
             checkmarks[0].enabled = true;
+            objectiveButtons[0].interactable = true;
+            objectiveButtons[0].gameObject.SetActive(true);
             GameManager.instance.objectivesDone++;
             StartCoroutine(SlideNotification("Objective 1 Completed!"));
         }
@@ -47,17 +59,21 @@ public class ObjectivesManager : MonoBehaviour
         {
             completed[1] = true;
             checkmarks[1].enabled = true;
+            objectiveButtons[1].interactable = true;
+            objectiveButtons[1].gameObject.SetActive(true);
             GameManager.instance.objectivesDone++;
             StartCoroutine(SlideNotification("Objective 2 Completed!"));
         }
 
        
-        // if (!completed[2] &&  condition)
-        // {
-        //     completed[2] = true;
-        //     checkmarks[2].enabled = true;
-        //     GameManager.instance.ObjectivesDone++;
-        // }
+        if (!completed[2] &&  GameManager.instance.population>=PopulationObj)
+         {
+            completed[2] = true;
+            checkmarks[2].enabled = true;
+            objectiveButtons[2].interactable = true;
+            objectiveButtons[2].gameObject.SetActive(true);
+            GameManager.instance.objectivesDone++;
+        }
 
   
         // if (!completed[3] && condition)
