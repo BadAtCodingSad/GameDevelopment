@@ -20,7 +20,7 @@ MonoBehaviour:
   woodCost: 0
   fishCost: 0
   energyCost: 50
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 97916095e47864dd5afaf39d8e56f85b, type: 3}
   type: 3
   info: 
   energyRate: 5

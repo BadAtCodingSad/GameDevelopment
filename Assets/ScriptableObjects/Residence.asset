@@ -20,7 +20,7 @@ MonoBehaviour:
   woodCost: 125
   fishCost: 0
   energyCost: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 095fe5331c485d24cb35401f9fa6a831, type: 3}
   type: 2
   info: Houses 100 people
   energyRate: -30

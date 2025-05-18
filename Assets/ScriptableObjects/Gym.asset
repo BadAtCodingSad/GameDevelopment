@@ -20,7 +20,7 @@ MonoBehaviour:
   woodCost: 0
   fishCost: 0
   energyCost: 0
-  icon: {fileID: 21300000, guid: cb44d1f53aaeed847a7d1d2afa8f0868, type: 3}
+  icon: {fileID: 21300000, guid: b3ce3d0f828424c46bd7eac1a1c265ea, type: 3}
   type: 0
   info: Improves workers output
   energyRate: -10
