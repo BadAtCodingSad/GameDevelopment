@@ -37,6 +37,7 @@ public class Fog : MonoBehaviour
         if (other.gameObject.tag == "Fog")
         {
             transform.parent.gameObject.SetActive(false);
+            AudioManager.instance.PlayFogPop();
         }
     }
 }

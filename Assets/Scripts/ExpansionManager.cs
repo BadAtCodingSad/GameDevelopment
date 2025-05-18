@@ -15,7 +15,7 @@ public class ExpansionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-                   
+
     }
     public void expansionCheck(int population) 
     {
@@ -31,7 +31,8 @@ public class ExpansionManager : MonoBehaviour
     {
         if (currentLevel >= sizes.Count)
             return;
-        fogClearer.transform.localScale = new Vector3(sizes[currentLevel].y, sizes[currentLevel].y, sizes[currentLevel].y);
+        LeanTween.scale(fogClearer, new Vector3(sizes[currentLevel].y, 1, sizes[currentLevel].y),3).setEaseOutCirc();
+        //fogClearer.transform.localScale = new Vector3(sizes[currentLevel].y, sizes[currentLevel].y, sizes[currentLevel].y);
         currentLevel++;
 
     }
