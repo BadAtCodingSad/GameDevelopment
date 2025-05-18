@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public enum ToolType
@@ -110,9 +111,11 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
+        
         pollutionBar.value = pollution;
-        pollutionAmount.text =(pollution/maxPollution *100).ToString() + "%";
-        if (townTile != null && !townTileSet) 
+        
+        pollutionAmount.text = (pollution / maxPollution * 100).ToString() + "%";
+        if (townTile != null && !townTileSet)
         {
             Vector3 spawnPos = new Vector3(townTile.gameObject.transform.position.x, 0.5f, townTile.gameObject.transform.position.z);
             camBasePos = townTile.gameObject.transform.position;
@@ -125,15 +128,25 @@ public class GameManager : MonoBehaviour
         {
             MoveCamToLocation(camBasePos);
         }
-        if (selectedTile != null && selectedTile != prevHex) 
+        if (selectedTile != null && selectedTile != prevHex)
         {
             UpdateUI();
         }
-        if (selectedTile == null) 
+        if (selectedTile == null)
         {
-            worldspaceCanvas.transform.position = new Vector3(200,200,200);
+            worldspaceCanvas.transform.position = new Vector3(200, 200, 200);
             uiManager.HideChanges();
-        }  
+        }
+        if ((pollution / maxPollution * 100) > 100)
+        {
+            //Game Over
+            SceneManager.LoadScene("GameL");
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))//Osama's Objective==4
+        {
+            SceneManager.LoadScene("GameW");
+        }
+        
     }
     private void UpdateUI() 
     {

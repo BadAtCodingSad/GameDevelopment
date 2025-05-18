@@ -20,7 +20,7 @@ MonoBehaviour:
   woodCost: 75
   fishCost: 0
   energyCost: 75
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6689d3db0e86c46d0be19e51e1a9eaab, type: 3}
   type: 0
   info: 'Produces 60 energy per turn '
   energyRate: 60

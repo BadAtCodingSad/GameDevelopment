@@ -68,6 +68,6 @@ public class InventoryManager : MonoBehaviour
         FishT.text="Fish: "+Fish;
         MetalT.text="Metal: "+Metal;
         OilT.text="Oil: "+Oil;
-        EnergyT.text="Oil: " + gameManager.energy;
+        EnergyT.text="Energy: " + gameManager.energy;
     }
 }
