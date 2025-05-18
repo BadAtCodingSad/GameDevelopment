@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a7f6ea34b41d45b8f56b5016be799, type: 3}
   m_Name: Gym
   m_EditorClassIdentifier: 
-  buildingName: Feras's Gold Gym
+  buildingName: Gym
   buildableTerrains: 040000000200000001000000
   buildablePrefab: {fileID: 7103697266255479796, guid: 70ca14a7da7c45e4f8d56ad5d08dfafd, type: 3}
   metalCost: 0
