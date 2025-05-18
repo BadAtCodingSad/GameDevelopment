@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public ExpansionManager expansionManager;
+    public WorkerManager workerManager;
     public CameraController cam;
     public List<Transform> hexTiles = new List<Transform>();
     public bool ready = false;
@@ -94,15 +95,8 @@ public class GameManager : MonoBehaviour
     #region Singleton
     private void Awake()
     {
-        if (instance == null) 
-        {
+        if (instance == null)
             instance = this;
-        }
-        else if(instance != this) 
-        {
-            Destroy(this);
-        }
-        DontDestroyOnLoad(this);
         ready = true;
     }
     #endregion
@@ -112,12 +106,12 @@ public class GameManager : MonoBehaviour
         //numberOfFreeWorkersText.text = numberOfFreeWorkers.ToString();
         DeleteRows();
         pollutionBar.maxValue = maxPollution;
+        numberOfFreeWorkers = population;
     }
     private void Update()
     {
         pollutionBar.value = pollution;
         pollutionAmount.text =(pollution/maxPollution *100).ToString() + "%";
-
         if (townTile != null && !townTileSet) 
         {
             Vector3 spawnPos = new Vector3(townTile.gameObject.transform.position.x, 0.5f, townTile.gameObject.transform.position.z);
@@ -183,7 +177,15 @@ public class GameManager : MonoBehaviour
             {
                 if (tile.changeType == TileChanges.ChangeType.worker)
                 {
-                    uiManager.ShowChange(tile.numberOfWorkersChanged > 0 ? tile.numberOfWorkersChanged + " workers will be assigned to this tile" : tile.numberOfWorkersChanged + " workers will be removed from this tile");
+                    int tmp = selectedTile.workersOnTile - selectedTile.workersOnTileLastTurn;
+                    if (tmp != 0)
+                    {
+                        uiManager.ShowChange(tmp > 0 ? tmp + " workers will be assigned to this tile" : Mathf.Abs(tmp) + " workers will be removed from this tile");
+                    }
+                    else
+                    {
+                        uiManager.HideChanges();
+                    }
                     break;
                 }
                 else 
@@ -234,32 +236,6 @@ public class GameManager : MonoBehaviour
         }
         return list;
     }
-    public void UpdateWorkers2() 
-    {
-        int n;
-        var isNumeric = int.TryParse(inputField.text, out n);
-        TileChanges tileChanges = ScriptableObject.CreateInstance<TileChanges>();
-        tileChanges.affectedTile = selectedTile; 
-        tileChanges.changeType = TileChanges.ChangeType.worker;
-        tileChanges.numberOfWorkersChanged = n - selectedTile.workersOnTile;
-        selectedTile.workersOnTile += tileChanges.numberOfWorkersChanged;
-        numberOfFreeWorkers -= tileChanges.numberOfWorkersChanged;
-        workerRateInfo.text = selectedTile.getExtractionRate();
-        //numberOfFreeWorkersText.text = numberOfFreeWorkers.ToString();
-        TileChanges changeToBeRemoved = null;
-        foreach (TileChanges change in changes) 
-        {
-            if (change.changeType == TileChanges.ChangeType.worker && change.affectedTile == tileChanges.affectedTile) 
-            {
-                tileChanges.numberOfWorkersChanged += change.numberOfWorkersChanged;
-                changeToBeRemoved = change;
-            }
-        }
-        changes.Remove(changeToBeRemoved);
-        if (tileChanges.numberOfWorkersChanged != 0)
-            changes.Add(tileChanges);
-        //Debug.Log(n);
-    }
     public void BuildUpdate(Buildable buildable)
     {
         int n;
@@ -279,33 +255,6 @@ public class GameManager : MonoBehaviour
         changes.Remove(changeToBeRemoved);
         changes.Add(tileChanges);
     }
-
-    public void BuildAction2(Buildable  build) {
-        int mCost=0;
-        int wCost=0;
-        int fCost=0;
-        int oCost=0;
-        foreach (Buildable buildable in buildables) {
-            if(buildable == build )
-            mCost= buildable.metalCost;
-            wCost= buildable.woodCost;
-            fCost= buildable.fishCost;
-            oCost= buildable.oilCost;
-        }
-        if (metal>=mCost && wood>=wCost && fish>=fCost && oil>= oCost){
-            
-            Build2(build);
-
-            metal-=mCost;
-            wood-=wCost;
-            fish-=fCost;
-            oil-= oCost;
-        }
-        else{
-            Debug.Log("Not enough resources");
-        }
-
-    }
    void AddRow(int amount, Sprite icon, string label)
     {
         if (amount <= 0) return; 
@@ -324,56 +273,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void Build2(Buildable build)
-    {
-        if (selectedTile == null) return;
-
-        Buildable targetBuildable = build;
-
-
-        if (targetBuildable == null) return;
-
-        Vector3 position = selectedTile.transform.position;
-        Quaternion rotation = selectedTile.transform.rotation;
-        Transform parent = selectedTile.transform.parent;
-        hexTiles.Remove(selectedTile.transform);
-        Destroy(selectedTile.gameObject);
-        GameObject newBuilding = Instantiate(targetBuildable.buildablePrefab, position, rotation, parent);
-    
-        hexTiles.Add(newBuilding.transform);
-
-        // Get the HexTile component of the new building
-        HexTile newTile = newBuilding.GetComponent<HexTile>();
-        if (newTile == null)
-        {
-            newTile = newBuilding.AddComponent<HexTile>();
-        }
-
-        newTile.type = HexTile.TerrainType.None;
-        newTile.tileName = build.buildingName;
-        newTile.isBuilt = true;
-        // Adding collider from the goat
-        MeshCollider meshCollider = newBuilding.GetComponent<MeshCollider>();
-        if (meshCollider == null)
-        {
-            Transform meshChild = newBuilding.transform.GetChild(0);
-            if (meshChild != null)
-            {
-                meshCollider = meshChild.GetComponent<MeshCollider>();
-                if (meshCollider == null)
-                {
-                    meshCollider = meshChild.gameObject.AddComponent<MeshCollider>();
-                    meshCollider.convex = true;
-                }
-            }
-        }
-        selectedTile = newTile;
-    }
-
     public void UpdateWorkers()
     {
         int n;
         var isNumeric = int.TryParse(inputField.text, out n);
+        if (n > 6)
+        {
+            inputField.text = selectedTile.workersOnTile.ToString();
+            return;
+        }
         TileChanges tileChanges = ScriptableObject.CreateInstance<TileChanges>();
         tileChanges.affectedTile = selectedTile;
         tileChanges.changeType = TileChanges.ChangeType.worker;
@@ -386,7 +294,7 @@ public class GameManager : MonoBehaviour
             {
                 if (change.changeType == TileChanges.ChangeType.worker)
                 {
-                    tileChanges.numberOfWorkersChanged += change.numberOfWorkersChanged;
+                    //tileChanges.numberOfWorkersChanged += change.numberOfWorkersChanged;
                 }
                 else
                 {
@@ -410,7 +318,15 @@ public class GameManager : MonoBehaviour
             {
                 selectedTile.workersOnTile += tileChanges.numberOfWorkersChanged;
                 numberOfFreeWorkers -= tileChanges.numberOfWorkersChanged;
-                uiManager.ShowChange(tileChanges.numberOfWorkersChanged > 0 ? tileChanges.numberOfWorkersChanged + " workers will be assigned to this tile" : tileChanges.numberOfWorkersChanged + " workers will be removed from this tile");
+
+                int tmp = selectedTile.workersOnTile - selectedTile.workersOnTileLastTurn;
+                if (tmp != 0)
+                {
+                    uiManager.ShowChange(tmp > 0 ? tmp + " workers will be assigned to this tile" : Mathf.Abs(tmp) + " workers will be removed from this tile");
+                } else
+                {
+                    uiManager.HideChanges();
+                }
 
                 if (tileChanges.numberOfWorkersChanged != 0)
                 {
@@ -433,6 +349,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Need more workers");
         }
+        selectedTile.RecalculateWorkerPositions();
     }
 
     // Button for this should be available only if selected tile is in changes.affectedTile
@@ -609,7 +526,7 @@ public class GameManager : MonoBehaviour
         }*/
         OnTurnEnd.Invoke();
         StartCoroutine(TimeDelay());
-        uiManager.HideChanges();
+
 
     }
 
@@ -698,5 +615,6 @@ public class GameManager : MonoBehaviour
 
 
         changes.Clear();
+        uiManager.HideChanges();
     }
 }

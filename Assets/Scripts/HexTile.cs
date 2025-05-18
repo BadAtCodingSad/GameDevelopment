@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class HexTile : MonoBehaviour
 {
+
+
     public List<Transform> neighbours = new List<Transform> ();
     public TerrainResource terrainResource;
     private GameManager gameManager;
-
+    public List<GameObject> workers= new List<GameObject> ();
     public Buildable buildable;
     public bool isActive = true;
 
@@ -17,8 +19,10 @@ public class HexTile : MonoBehaviour
     public int fish;
 
     public int workersOnTile;
+    public int workersOnTileLastTurn;
     public string tileName;
     public bool isBuilt = false;
+    public GameObject inactiveSprite;
     public enum TerrainType
     {
         Ocean,
@@ -98,12 +102,24 @@ public class HexTile : MonoBehaviour
                 fish = Mathf.FloorToInt(Random.Range(terrainResource.fish.x, terrainResource.fish.y));
             }
         }
+
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.name.Contains("energy")) 
+            {
+                inactiveSprite = child.gameObject;
+                inactiveSprite.SetActive(false);
+                return;
+            }
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (inactiveSprite != null)
+            inactiveSprite.SetActive(!isActive);
     }
     public string getExtractionRate() 
     {
@@ -149,6 +165,7 @@ public class HexTile : MonoBehaviour
             wood -= Mathf.Clamp(Mathf.RoundToInt(terrainResource.woodRate * workersOnTile + terrainResource.woodRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,wood);
             oil -= Mathf.Clamp(Mathf.RoundToInt(terrainResource.oilRate * workersOnTile + terrainResource.oilRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,oil);
             gameManager.pollution += workersOnTile * terrainResource.pollutionRate;
+            workersOnTileLastTurn = workersOnTile;
             HexTile hexTile = null;
             foreach (Transform transform in neighbours) 
             {
@@ -165,6 +182,21 @@ public class HexTile : MonoBehaviour
                 gameManager.energy += buildable.energyRate;
             }
         }
-    } 
+    }
+
+    public void RecalculateWorkerPositions() 
+    {
+        for (int i = 0; i < workers.Count; i++) 
+        {
+            Destroy(workers[i].gameObject);
+        }
+        workers.Clear();
+        for (int i = 0; i < workersOnTile; i++) 
+        {
+            
+            workers.Add(Instantiate(gameManager.workerManager.worker, transform));
+            workers[i].transform.localPosition = gameManager.workerManager.workerPositions[i];
+        }
+    }
 
 }
