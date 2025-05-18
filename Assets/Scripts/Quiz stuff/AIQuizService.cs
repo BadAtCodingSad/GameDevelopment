@@ -39,7 +39,7 @@ Make sure the questions are concise, and the 4 multiple choices are short too (l
 
     private string openAIKey;
     private string apiUrl = "https://api.openai.com/v1/chat/completions";
-    private string [] difficultyList= {"Easy", "Medium", "Hard"};
+    private string [] difficultyList= {"high School level", "University level", "Univesity level and specific"};
     public int difficultyIndex=0;
 
     
@@ -147,6 +147,7 @@ Make sure the questions are concise, and the 4 multiple choices are short too (l
     public string BuildPrompt()
 {
     string difficulty = difficultyList[difficultyIndex % difficultyList.Length];
-    return $"{quizInstructions}\nDifficulty: {difficulty}.\n{jsonFormatInstructions}";
+    Debug.Log(difficulty);
+    return $"{quizInstructions}\nMake the Difficulty of the quiz {difficulty}.\n{jsonFormatInstructions}";
 }
 }
