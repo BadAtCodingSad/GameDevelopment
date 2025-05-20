@@ -64,10 +64,10 @@ public class InventoryManager : MonoBehaviour
         Oil = gameManager.oil;
         Metal = gameManager.metal;
 
-        WoodT.text="Wood: "+Wood;
-        FishT.text="Fish: "+Fish;
-        MetalT.text="Metal: "+Metal;
-        OilT.text="Oil: "+Oil;
-        EnergyT.text="Energy: " + gameManager.energy;
+        WoodT.text=Wood.ToString();
+        FishT.text=Fish.ToString();
+        MetalT.text=Metal.ToString();
+        OilT.text=Oil.ToString();
+        EnergyT.text=gameManager.energy.ToString();
     }
 }

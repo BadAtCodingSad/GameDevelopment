@@ -568,7 +568,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2233,8 +2233,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 0}
-  m_SizeDelta: {x: 100, y: 400}
+  m_AnchoredPosition: {x: -80, y: -23.545301}
+  m_SizeDelta: {x: 100, y: 530}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &354086845
 MonoBehaviour:
@@ -2331,7 +2331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter text...
+  m_text: Set number of workers
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2365,7 +2365,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3104,10 +3104,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2026677758}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 85, y: 30}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &490609745
 CanvasRenderer:
@@ -3889,13 +3889,13 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: -30
+    m_Top: -50
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_StartCorner: 1
+  m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 50, y: 50}
-  m_Spacing: {x: 0, y: 20}
+  m_Spacing: {x: 0, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &666543811
@@ -5089,10 +5089,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 561367197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 85, y: 30}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &902428163
 CanvasRenderer:
@@ -7625,9 +7625,9 @@ MonoBehaviour:
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0}
+  m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 1
-  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0}
+  m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 1}
   m_Text: 
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
@@ -7991,10 +7991,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1100611980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 85, y: 30}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1558488234
 CanvasRenderer:
@@ -8907,6 +8907,7 @@ MonoBehaviour:
   workerManager: {fileID: 1255835297}
   cam: {fileID: 330585548}
   hexTiles: []
+  tilesWithWorkers: []
   ready: 0
   townTile: {fileID: 0}
   selectedTile: {fileID: 0}
@@ -8938,17 +8939,17 @@ MonoBehaviour:
   maxPollution: 10000
   pollution: 9
   maxPopulation: 100
-  population: 10
+  population: 30
   energy: 60
   numberOfFreeWorkers: 10000
   numberofActions: 0
   numberOfTurns: 0
-  populationLimitIncreasePerBuilding: 100
+  populationLimitIncreasePerBuilding: 30
   workerEfficiencyPerGym: 0.4
   metal: 1000
   oil: 1000
   wood: 1000
-  fish: 1000
+  fish: 130
   changes: []
   residences: []
   gyms: []
@@ -8958,6 +8959,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c2461983464d1e34fbeb0b3077883ee4, type: 2}
   - {fileID: 11400000, guid: 0cb6af04e89aba440a2dce3f32c6eb36, type: 2}
   - {fileID: 11400000, guid: 45df2a7918ab29c488d9cf3a23d63006, type: 2}
+  - {fileID: 11400000, guid: bd47d74cb4a8ed843815450c47f5ab5d, type: 2}
   currentTool: 0
   uiManager: {fileID: 615646141}
   Q: []
@@ -9407,10 +9409,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1822605078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 85, y: 30}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1979386738
 CanvasRenderer:
@@ -9975,10 +9977,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 827658928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: -10}
-  m_SizeDelta: {x: 85, y: 30}
+  m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2053752723
 CanvasRenderer:

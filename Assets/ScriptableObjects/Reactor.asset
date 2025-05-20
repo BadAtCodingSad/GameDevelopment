@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 021a7f6ea34b41d45b8f56b5016be799, type: 3}
-  m_Name: Residence
+  m_Name: Reactor
   m_EditorClassIdentifier: 
-  buildingName: Residence
-  buildableTerrains: 020000000400000001000000
-  buildablePrefab: {fileID: 4562932375561487484, guid: e503e64695f63bb448578d912364e054, type: 3}
-  metalCost: 70
-  oilCost: 25
-  woodCost: 125
+  buildingName: Reactor
+  buildableTerrains: 04000000010000000200000003000000
+  buildablePrefab: {fileID: 7103697266255479796, guid: 6a4e38772eb1fc7418a8e80d82dbe40f, type: 3}
+  metalCost: 0
+  oilCost: 0
+  woodCost: 0
   fishCost: 0
   energyCost: 0
-  icon: {fileID: 21300000, guid: 01f47d9bc993e3f4986b13ef8534d0f6, type: 3}
-  type: 2
-  info: Houses 100 people
-  energyRate: -30
+  icon: {fileID: 21300000, guid: 53a1b55d46b07b3498995f42f64bdf84, type: 3}
+  type: 4
+  info: Cleanest Energy source
+  energyRate: 0
   pollutionRate: 0
-  fishDepletionRate: 5
+  fishDepletionRate: 0

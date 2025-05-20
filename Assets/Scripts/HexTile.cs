@@ -164,7 +164,7 @@ public class HexTile : MonoBehaviour
             metal -= Mathf.Clamp(Mathf.RoundToInt(terrainResource.metalRate * workersOnTile + terrainResource.metalRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,metal);
             wood -= Mathf.Clamp(Mathf.RoundToInt(terrainResource.woodRate * workersOnTile + terrainResource.woodRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,wood);
             oil -= Mathf.Clamp(Mathf.RoundToInt(terrainResource.oilRate * workersOnTile + terrainResource.oilRate * workersOnTile * gameManager.workerEfficiencyPerGym * gameManager.gyms.Count),0,oil);
-            gameManager.pollution += workersOnTile * terrainResource.pollutionRate;
+            gameManager.pollution += Mathf.Clamp( workersOnTile * terrainResource.pollutionRate,0,gameManager.maxPollution);
             workersOnTileLastTurn = workersOnTile;
             HexTile hexTile = null;
             foreach (Transform transform in neighbours) 
