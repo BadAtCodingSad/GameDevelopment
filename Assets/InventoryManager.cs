@@ -14,10 +14,10 @@ public class InventoryManager : MonoBehaviour
     public TextMeshProUGUI EnergyT;
     public TextMeshProUGUI OilT;
   
-    private int Wood=0;
-    private int Fish=50;
-    private int Oil=0;
-    private int Metal=0;
+    private int Wood = 0;
+    private int Fish = 12;
+    private int Oil = 0;
+    private int Metal = 0;
     private bool MenuActivated;
     public static InventoryManager Instance;
     private GameManager gameManager;
@@ -35,9 +35,9 @@ public class InventoryManager : MonoBehaviour
     {
         Inventory.SetActive(false);
         MenuActivated=false;
-        WoodT.text="Wood: 0/";
-        FishT.text="Fish: 0/";
-        MetalT.text="Metal: 0/";
+        WoodT.text="Woody: 36 0/";
+        FishT.text="Fish: 45 0/";
+        MetalT.text="Metal: 45 0/";
         OilT.text="Oil : 0/";
         EnergyT.text = "Energy : 0/";
 

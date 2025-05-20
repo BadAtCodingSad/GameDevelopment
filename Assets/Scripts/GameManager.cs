@@ -56,15 +56,15 @@ public class GameManager : MonoBehaviour
 
     public float maxPollution;
     public float pollution;
-    public int maxPopulation = 100;
-    public int population = 100;
+    public int maxPopulation = 30;
+    public int population = 6;
     public int energy;
 
     [Header("Resource")]
-    public int numberOfFreeWorkers = 10000;
+    public int numberOfFreeWorkers;
     public int numberofActions = 0;
     public int numberOfTurns = 0;
-    public int populationLimitIncreasePerBuilding = 100;
+    public int populationLimitIncreasePerBuilding = 30;
     public float workerEfficiencyPerGym = 0.4f;
     public int metal;
     public int oil;
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
             worldspaceCanvas.transform.position = new Vector3(200, 200, 200);
             uiManager.HideChanges();
         }
-        if ((pollution / maxPollution * 100) > 100)
+        if (((pollution / maxPollution * 100) > 100)||(population==0))
         {
             //Game Over
             SceneManager.LoadScene("GameL");
@@ -626,9 +626,9 @@ public class GameManager : MonoBehaviour
             maxPopulation = 30 + populationLimitIncreasePerBuilding * residences.Count;
         else
             maxPopulation = 30;
-        fish -= Mathf.Clamp(population * 4,0,fish);
+        fish -= Mathf.Clamp(population,0,fish);
         int lastTurnPopulation = population;
-        population = Mathf.RoundToInt(Mathf.Clamp(fish / 4, 0, maxPopulation));
+        population = Mathf.RoundToInt(Mathf.Clamp(fish / 2, 0, maxPopulation));
         int populationGrowth = population - lastTurnPopulation;
         Debug.Log(populationGrowth);
         if (populationGrowth > 0)

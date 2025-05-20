@@ -17,12 +17,12 @@ MonoBehaviour:
   buildablePrefab: {fileID: 7103697266255479796, guid: fc23f0781986d1741953e421432f20d0, type: 3}
   metalCost: 75
   oilCost: 10
-  woodCost: 0
+  woodCost: 45
   fishCost: 0
-  energyCost: 50
+  energyCost: 20
   icon: {fileID: 21300000, guid: 97916095e47864dd5afaf39d8e56f85b, type: 3}
   type: 3
-  info: 
-  energyRate: 5
-  pollutionRate: -25
+  info: A Renewable Energy generator
+  energyRate: 20
+  pollutionRate: -20
   fishDepletionRate: 0

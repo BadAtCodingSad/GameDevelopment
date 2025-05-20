@@ -15,8 +15,8 @@ MonoBehaviour:
   type: 3
   metal: {x: 0, y: 0}
   wood: {x: 0, y: 0}
-  oil: {x: 1, y: 10}
-  fish: {x: 100, y: 200}
+  oil: {x: 10, y: 20}
+  fish: {x: 1200, y: 1300}
   metalRate: 0
   woodRate: 0
   oilRate: 0.5
