@@ -5,7 +5,8 @@ public enum BuildingType
     Factory,
     Dam,
     Residence,
-    WindTurbine
+    WindTurbine,
+    Reactor
 }
 [CreateAssetMenu(fileName = "Buildable", menuName = "Scriptable Objects/Buildable")]
 public class Buildable : ScriptableObject

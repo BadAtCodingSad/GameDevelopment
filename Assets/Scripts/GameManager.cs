@@ -1,13 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Runtime.Serialization.Formatters;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +21,7 @@ public class GameManager : MonoBehaviour
     public WorkerManager workerManager;
     public CameraController cam;
     public List<Transform> hexTiles = new List<Transform>();
+    public List<HexTile> tilesWithWorkers = new List<HexTile>();
     public bool ready = false;
     public HexTile townTile = null;
     public HexTile selectedTile = null;
@@ -108,6 +104,7 @@ public class GameManager : MonoBehaviour
         DeleteRows();
         pollutionBar.maxValue = maxPollution;
         numberOfFreeWorkers = population;
+        populationDisplay.text = population.ToString();
     }
     private void Update()
     {
@@ -363,6 +360,20 @@ public class GameManager : MonoBehaviour
             Debug.Log("Need more workers");
         }
         selectedTile.RecalculateWorkerPositions();
+        if (selectedTile.workersOnTile > 0)
+        {
+            tilesWithWorkers.Add(selectedTile);
+        }
+        else 
+        {
+            for(int i =0; i < tilesWithWorkers.Count; i++)
+            {
+                if (selectedTile == tilesWithWorkers[i]) 
+                {
+                    tilesWithWorkers.RemoveAt(i);
+                }
+            }
+        }
     }
 
     // Button for this should be available only if selected tile is in changes.affectedTile
@@ -552,13 +563,13 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         foreach (HexTile h in Q)
         {
-            if (energy >= -h.buildable.energyRate  && fish >= h.buildable.fishDepletionRate)
+            if (energy >= -h.buildable.energyRate)
             {
                 energy += h.buildable.energyRate;
                 if(energy < 0)
                     energy = 0;
                 pollution += h.buildable.pollutionRate;
-                fish -= h.buildable.fishDepletionRate;
+                //fish -= h.buildable.fishDepletionRate;
                 h.isActive = true;
                 bool addRes = true;
                 foreach (HexTile res in residences)
@@ -608,10 +619,50 @@ public class GameManager : MonoBehaviour
 
         }
         if (residences.Count > 0)
-            maxPopulation = 100 + populationLimitIncreasePerBuilding * residences.Count;
+            maxPopulation = 30 + populationLimitIncreasePerBuilding * residences.Count;
         else
-            maxPopulation = 100;
-        population = Mathf.RoundToInt(Mathf.Clamp(100 + fish / 4, 0, maxPopulation));
+            maxPopulation = 30;
+        fish -= Mathf.Clamp(population * 4,0,fish);
+        int lastTurnPopulation = population;
+        population = Mathf.RoundToInt(Mathf.Clamp(fish / 4, 0, maxPopulation));
+        int populationGrowth = population - lastTurnPopulation;
+        Debug.Log(populationGrowth);
+        if (populationGrowth > 0)
+        {
+            numberOfFreeWorkers += populationGrowth;
+        }
+        else
+        {
+            if (Mathf.Abs(populationGrowth) > numberOfFreeWorkers)
+            {
+                int workersToBeRemovedFromTiles = Mathf.Abs(populationGrowth) - numberOfFreeWorkers;
+                numberOfFreeWorkers = 0;
+                List<int> garbageTiles = new List<int>();
+                for (int i = 0; i < tilesWithWorkers.Count; i++)
+                {
+                    int diff = workersToBeRemovedFromTiles - tilesWithWorkers[i].workersOnTile;
+                    if (diff > 0)
+                    {
+                        workersToBeRemovedFromTiles -= tilesWithWorkers[i].workersOnTile;
+                        tilesWithWorkers[i].workersOnTile = 0;
+                        tilesWithWorkers[i].RecalculateWorkerPositions();
+                        garbageTiles.Add(i);
+                    }
+                    else
+                    {
+                        tilesWithWorkers[i].workersOnTile -= workersToBeRemovedFromTiles;
+                        workersToBeRemovedFromTiles = 0;
+                        tilesWithWorkers[i].RecalculateWorkerPositions();
+                    }
+                }
+                foreach (int i in garbageTiles) 
+                    tilesWithWorkers.RemoveAt(i);
+            }
+            else 
+            {
+                numberOfFreeWorkers -= Mathf.Abs(populationGrowth);
+            }
+        }
         populationDisplay.text = population.ToString();
         expansionManager.expansionCheck(population);
         if(selectedTile)
