@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
             //Game Over
             SceneManager.LoadScene("GameL");
         }
-        if(Input.GetKeyDown(KeyCode.Escape))//Osama's Objective==4
+        if(objectivesDone==4)//Osama's Objective==4
         {
             SceneManager.LoadScene("GameW");
         }
