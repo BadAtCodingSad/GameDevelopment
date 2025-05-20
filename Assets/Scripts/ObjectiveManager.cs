@@ -77,12 +77,16 @@ public class ObjectiveManager : MonoBehaviour
         }
 
   
-        // if (!completed[3] && condition)
-        // {
-        //     completed[3] = true;
-        //     checkmarks[3].enabled = true;
-        //     GameManager.instance.ObjectivesDone++;
-        // }
+        if (!completed[3] &&  GameManager.instance.noReactor>=1)
+        {
+             completed[3] = true;
+            checkmarks[3].enabled = true;
+            objectiveButtons[3].interactable = true;
+            objectiveButtons[3].gameObject.SetActive(true);
+            GameManager.instance.objectivesDone++;
+            StartCoroutine(SlideNotification("Objective 4 Completed!"));
+     
+        }
     }
     private IEnumerator SlideNotification(string message)
 {
@@ -92,10 +96,9 @@ public class ObjectiveManager : MonoBehaviour
     float slideOutX = 2205f;
     float duration = 0.5f;
 
-    // Move to start position
     notificationPanel.anchoredPosition = new Vector2(startX, notificationPanel.anchoredPosition.y);
 
-    // Slide in
+   
     float t = 0;
     Debug.Log("Slide in");
     while (t < 1)
@@ -107,10 +110,9 @@ public class ObjectiveManager : MonoBehaviour
     }
     notificationPanel.anchoredPosition = new Vector2(slideInX, notificationPanel.anchoredPosition.y);
 
-    // Wait 5 seconds
     yield return new WaitForSeconds(5f);
 
-    // Slide out (to right)
+
     t = 0;
      Debug.Log("Slide out");
     float currentX = notificationPanel.anchoredPosition.x;

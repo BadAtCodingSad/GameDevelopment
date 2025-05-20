@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
     public int noTowns=0;
     public int noSBuilding=0;
     public int objectivesDone=0;
+    public int noReactor=0;
 
 
     Vector3 camBasePos;
@@ -682,6 +683,9 @@ public class GameManager : MonoBehaviour
                     else if (change.toBeBuilt.buildingName == "Dam" || change.toBeBuilt.buildingName == "Wind Turbine")
                     {
                         noSBuilding += 1;
+                    }
+                    else if (change.toBeBuilt.buildingName == "Reactor"){
+                        noReactor+=1;
                     }
                 Build(change.affectedTile, change.toBeBuilt);
             } // worker changes are already done on the spot
