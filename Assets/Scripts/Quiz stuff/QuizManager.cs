@@ -27,7 +27,7 @@ public class QuizManager : MonoBehaviour
         
         string prompt = AIQuizService.Instance.BuildPrompt();
         StartCoroutine(AIQuizService.Instance.GenerateQuiz(prompt, OnQuizGenerated));
-        ObjectiveManager.instance.objectiveButtons[AIQuizService.Instance.difficultyIndex].gameObject.SetActive(false);
+        ObjectiveManager.instance.objectiveButtons[AIQuizService.Instance.difficultyIndex%3].gameObject.SetActive(false);
         AIQuizService.Instance.difficultyIndex++;
         
     }

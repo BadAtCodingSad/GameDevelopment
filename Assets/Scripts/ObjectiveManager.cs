@@ -73,6 +73,7 @@ public class ObjectiveManager : MonoBehaviour
             objectiveButtons[2].interactable = true;
             objectiveButtons[2].gameObject.SetActive(true);
             GameManager.instance.objectivesDone++;
+            StartCoroutine(SlideNotification("Objective 3 Completed!"));
         }
 
   
