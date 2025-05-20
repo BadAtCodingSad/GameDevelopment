@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a7f6ea34b41d45b8f56b5016be799, type: 3}
   m_Name: Wind Turbine
   m_EditorClassIdentifier: 
-  buildingName: WindTurbine
+  buildingName: Wind Turbine
   buildableTerrains: 010000000200000004000000
   buildablePrefab: {fileID: 7103697266255479796, guid: fc23f0781986d1741953e421432f20d0, type: 3}
   metalCost: 75

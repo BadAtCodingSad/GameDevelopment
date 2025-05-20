@@ -10882,8 +10882,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1420086665}
   m_HandleRect: {fileID: 1420086664}
   m_Direction: 2
-  m_Value: 1.1803279
-  m_Size: 0.99989957
+  m_Value: 1.0909091
+  m_Size: 0.99995697
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13331,9 +13331,6 @@ MonoBehaviour:
   - {fileID: 1286641764}
   TownsObj: 3
   SustainableObj: 3
-  PopulationObj: 300
-  completed: 
-  active: 0
   notificationPanel: {fileID: 6919783}
   notificationText: {fileID: 1518053248}
   objectivespanel: {fileID: 643357205}
@@ -14107,7 +14104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expansionManager: {fileID: 257512345}
-  workerManager: {fileID: 0}
   cam: {fileID: 330585548}
   hexTiles: []
   ready: 0
@@ -14163,6 +14159,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 45df2a7918ab29c488d9cf3a23d63006, type: 2}
   currentTool: 0
   uiManager: {fileID: 615646141}
+  noTowns: 0
+  noSBuilding: 0
+  objectivesDone: 0
   Q: []
 --- !u!4 &1794925301
 Transform:
@@ -14292,12 +14291,6 @@ MonoBehaviour:
     The pollution or environmental impact they cause\r\n\rMake sure the questions
     are concise, and and the 4 muilitple choices are short too (like three word max
     for each word).\nRespond in JSON format ONLY, matching the QuizData structure."
-  openAIKey: 
-  apiUrl: https://api.openai.com/v1/chat/completions
-  difficultyList:
-  - high School level
-  - University level
-  - Univesity level and specific
   difficultyIndex: 0
 --- !u!4 &1848235425
 Transform:
@@ -14333,25 +14326,6 @@ MonoBehaviour:
   - {fileID: 2113792642}
   - {fileID: 83824523}
   - {fileID: 776907792}
-  quizData:
-    questions: []
-  currentQuestionIndex: 0
-  correctCount: 0
-  defaultColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
-  correctColor:
-    r: 0
-    g: 1
-    b: 0
-    a: 1
-  wrongColor:
-    r: 1
-    g: 0
-    b: 0
-    a: 1
 --- !u!114 &1848235427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14365,7 +14339,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectivePannel: {fileID: 643357205}
-  gameManger: {fileID: 0}
   rewardPanel: {fileID: 410044724}
   rewardText: {fileID: 1982269593}
   pollutionDecreaseRate: 1.5

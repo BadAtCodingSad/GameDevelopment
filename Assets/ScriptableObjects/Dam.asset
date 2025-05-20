@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a7f6ea34b41d45b8f56b5016be799, type: 3}
   m_Name: Dam
   m_EditorClassIdentifier: 
-  buildingName: Feras Enterprise Dams
+  buildingName: Dam
   buildableTerrains: 03000000
   buildablePrefab: {fileID: 7103697266255479796, guid: 16ea6e9eff80c2f428f9d0642fb7a886, type: 3}
   metalCost: 75
