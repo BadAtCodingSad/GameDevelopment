@@ -20,7 +20,7 @@ public class QuizUI : MonoBehaviour
     private int correctCount = 0;
     private System.Action<int> onQuizComplete;
 
-    private Color defaultColor = Color.white;
+    private Color defaultColor = Color.gray;
     private Color correctColor = Color.green;
     private Color wrongColor = Color.red;
 

@@ -15,14 +15,14 @@ MonoBehaviour:
   buildingName: Residence
   buildableTerrains: 020000000400000001000000
   buildablePrefab: {fileID: 4562932375561487484, guid: e503e64695f63bb448578d912364e054, type: 3}
-  metalCost: 70
-  oilCost: 25
-  woodCost: 125
+  metalCost: 30
+  oilCost: 20
+  woodCost: 40
   fishCost: 0
   energyCost: 0
   icon: {fileID: 21300000, guid: 01f47d9bc993e3f4986b13ef8534d0f6, type: 3}
   type: 2
-  info: Houses 100 people
+  info: Houses 30 people
   energyRate: -30
-  pollutionRate: 0
-  fishDepletionRate: 5
+  pollutionRate: 5
+  fishDepletionRate: 0

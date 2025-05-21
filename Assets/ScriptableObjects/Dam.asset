@@ -15,14 +15,14 @@ MonoBehaviour:
   buildingName: Dam
   buildableTerrains: 03000000
   buildablePrefab: {fileID: 7103697266255479796, guid: 16ea6e9eff80c2f428f9d0642fb7a886, type: 3}
-  metalCost: 75
-  oilCost: 15
-  woodCost: 100
+  metalCost: 90
+  oilCost: 10
+  woodCost: 70
   fishCost: 0
-  energyCost: 125
+  energyCost: 40
   icon: {fileID: 21300000, guid: 93003bddb4c3048debea573641115a55, type: 3}
   type: 1
-  info: Feras is goated
-  energyRate: 20
-  pollutionRate: -100
+  info: A renewable energy generator
+  energyRate: 45
+  pollutionRate: -40
   fishDepletionRate: 0

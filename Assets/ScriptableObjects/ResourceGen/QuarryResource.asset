@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: QuarryResource
   m_EditorClassIdentifier: 
   type: 2
-  metal: {x: 30, y: 69}
+  metal: {x: 100, y: 200}
   wood: {x: 0, y: 0}
-  oil: {x: 10, y: 25}
+  oil: {x: 300, y: 600}
   fish: {x: 0, y: 0}
-  metalRate: 3
+  metalRate: 2
   woodRate: 0
-  oilRate: 2
+  oilRate: 6
   fishRate: 0
-  pollutionRate: 5
+  pollutionRate: 6
