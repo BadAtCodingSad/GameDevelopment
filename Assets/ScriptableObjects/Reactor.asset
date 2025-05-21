@@ -15,9 +15,9 @@ MonoBehaviour:
   buildingName: Reactor
   buildableTerrains: 04000000010000000200000003000000
   buildablePrefab: {fileID: 7103697266255479796, guid: 6a4e38772eb1fc7418a8e80d82dbe40f, type: 3}
-  metalCost: 200
-  oilCost: 200
-  woodCost: 200
+  metalCost: 100
+  oilCost: 50
+  woodCost: 100
   fishCost: 0
   energyCost: 100
   icon: {fileID: 21300000, guid: 53a1b55d46b07b3498995f42f64bdf84, type: 3}
