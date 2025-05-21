@@ -39,7 +39,7 @@ Make sure the questions are concise, and the 4 multiple choices are short too (l
 
     private string openAIKey;
     private string apiUrl = "https://api.openai.com/v1/chat/completions";
-    private string [] difficultyList= {"high School level", "University level", "Univesity level and specific"};
+    private string [] difficultyList= {"high School level", "University level", "University level and specific"};
     public int difficultyIndex=0;
 
     

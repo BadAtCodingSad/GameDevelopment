@@ -15,11 +15,11 @@ MonoBehaviour:
   buildingName: Gym
   buildableTerrains: 040000000200000001000000
   buildablePrefab: {fileID: 7103697266255479796, guid: 70ca14a7da7c45e4f8d56ad5d08dfafd, type: 3}
-  metalCost: 0
-  oilCost: 0
-  woodCost: 0
+  metalCost: 100
+  oilCost: 20
+  woodCost: 50
   fishCost: 0
-  energyCost: 0
+  energyCost: 50
   icon: {fileID: 21300000, guid: b3ce3d0f828424c46bd7eac1a1c265ea, type: 3}
   type: 0
   info: Improves workers output

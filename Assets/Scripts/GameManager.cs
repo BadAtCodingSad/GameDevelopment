@@ -112,7 +112,8 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        
+        if (pollution < 0)
+            pollution = 0;
         pollutionBar.value = pollution;
         
         pollutionAmount.text = (pollution / maxPollution * 100).ToString() + "%";
